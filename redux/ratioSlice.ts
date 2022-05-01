@@ -5,7 +5,7 @@ export type ratioState = {
 };
 
 export const initialState: ratioState = {
-  ratio: 0,
+  ratio: 16,
 };
 
 export const ratioSlice = createSlice({

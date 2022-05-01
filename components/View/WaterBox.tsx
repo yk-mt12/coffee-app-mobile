@@ -14,17 +14,13 @@ export const WaterBox = (props: WaterViewType) => {
     <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>
       {isLeftWater ? (
-        <>
-          <View>
-            <WaterView />
-          </View>
-        </>
+        <View>
+          <WaterView />
+        </View>
       ) : (
-        <>
-          <View>
-            <WaterInput />
-          </View>
-        </>
+        <View>
+          <WaterInput />
+        </View>
       )}
     </View>
   );

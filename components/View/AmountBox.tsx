@@ -14,19 +14,14 @@ export const AmountBox = (props: WaterViewType) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>
-      {/* TODO: 左に湯量があるときフォームは表示しない。  */}
       {isLeftWater ? (
-        <>
-          <View>
-            <AmountInput />
-          </View>
-        </>
+        <View>
+          <AmountInput />
+        </View>
       ) : (
-        <>
-          <View>
-            <AmountView />
-          </View>
-        </>
+        <View>
+          <AmountView />
+        </View>
       )}
     </View>
   );
