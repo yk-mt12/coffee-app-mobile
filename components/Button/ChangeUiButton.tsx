@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useColorScheme } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
+import { useDispatch } from 'react-redux';
+import { updateIsWater } from '../../redux/isWaterSlice';
 
 export const ChangeUiButton = () => {
+  const dispatch = useDispatch();
   const isDarkMode = useColorScheme() === 'dark';
-  const [isWaterLeft, setIsWaterLeft] = useState<boolean>(false);
 
   return (
     // TODO: onPressした時に湯量と豆量の配置を入れ替える！
@@ -12,7 +14,7 @@ export const ChangeUiButton = () => {
       name="exchange"
       size={24}
       color={isDarkMode ? 'white' : 'black'}
-      onPress={() => setIsWaterLeft(!isWaterLeft)}
+      onPress={() => dispatch(updateIsWater())}
     />
   );
 };

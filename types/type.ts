@@ -23,3 +23,7 @@ export type WaterViewType = {
 export type SwitchButtonType = {
   title: string;
 }
+
+export type AmountViewType = {
+  amount: number;
+}

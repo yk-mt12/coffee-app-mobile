@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { TextInput, StyleSheet, useColorScheme } from 'react-native';
-import { Text, View } from '../../../components/Themed';
+import { Text, View } from '../../components/Themed';
 
-import { RatioInputType } from '../../../types/type';
+import { RatioInputType } from '../../types/type';
 
 export const RatioInput = (props: RatioInputType) => {
   const { title } = props;

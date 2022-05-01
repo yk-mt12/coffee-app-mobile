@@ -2,36 +2,28 @@ import React from 'react';
 import { StyleSheet, useColorScheme } from 'react-native';
 
 import { View } from '../components/Themed';
-import { AmountInput } from '../src/components/Input/AmountInput';
-import { AmountView } from '../src/components/View/AmountView';
-import { ChangeUiButton } from '../src/components/Button/ChangeUiButton';
-import { WaterView } from '../src/components/View/WaterView';
+import { AmountBox } from '../components/View/AmountBox';
+import { ChangeUiButton } from '../components/Button/ChangeUiButton';
+import { WaterBox } from '../components/View/WaterBox';
 import { RootTabScreenProps } from '../types';
+import { LeftWater } from '../components/View/LeftWater';
+import { RightWater } from '../components/View/RightWater';
+import { useSelector } from 'react-redux';
 
 export default function NormalScreen({}: RootTabScreenProps<'Normal'>) {
+  const isLeftWater = useSelector(state => state.isWater.isWater)
+
   return (
     <View style={styles.container}>
       <View style={[styles.containerItem]}>
         {/* TODO: ChangeUiButtonをクリックしたときに配置を変更する。 */}
-        {false ? (
+        {isLeftWater ? (
           <>
-            <View style={styles.rowItem}>
-              <AmountView title={'豆量'} />
-            </View>
-            <ChangeUiButton />
-            <View style={styles.rowItem}>
-              <WaterView title={'湯量'} />
-            </View>
+            <RightWater />
           </>
         ) : (
           <>
-            <View style={styles.rowItem}>
-              <WaterView title={'湯量'} />
-            </View>
-            <ChangeUiButton />
-            <View style={styles.rowItem}>
-              <AmountView title={'豆量'} />
-            </View>
+            <LeftWater />
           </>
         )}
       </View>
@@ -47,13 +39,6 @@ const styles = StyleSheet.create({
     marginTop: 20,
     padding: 10,
     flexDirection: 'row',
-  },
-  rowItem: {
-    textAlign: 'center',
-    width: 150,
-    flex: 0.5,
-    paddingLeft: 30,
-    paddingRight: 30,
   },
   dark: {
     color: '#fff',

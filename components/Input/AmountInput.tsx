@@ -1,7 +1,11 @@
 import { useState } from 'react';
 import { TextInput, StyleSheet, useColorScheme, SafeAreaView } from 'react-native';
+import { useDispatch } from 'react-redux';
+
+import { updateAmount } from '../../redux/amountSlice';
 
 export const AmountInput = () => {
+  const dispatch = useDispatch()
   const isDarkMode = useColorScheme() === 'dark';
   const [amount, setAmount] = useState<number>(0);
 
@@ -9,11 +13,13 @@ export const AmountInput = () => {
     <SafeAreaView style={styles.container}>
       <TextInput
         style={[styles.input, isDarkMode ? styles.dark : styles.light]}
-        onChangeText={(newText) => setAmount(Number(newText))}
-        placeholder="input amount"
+        placeholder="input"
         maxLength={3}
+        returnKeyType='done'
         keyboardType="numbers-and-punctuation"
         textAlign="center"
+        onChangeText={(newText) => setAmount(Number(newText))}
+        onSubmitEditing = {() => dispatch(updateAmount(amount))}
       />
     </SafeAreaView>
   );
@@ -30,6 +36,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     width: 100,
     height: 40,
+    fontSize: 25,
     textAlign: 'center',
   },
   dark: {

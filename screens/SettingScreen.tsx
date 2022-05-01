@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 
 import { View } from '../components/Themed';
-import { RatioInput } from '../src/components/Input/RatioInput';
+import { RatioInput } from '../components/Input/RatioInput';
 import { RootTabScreenProps } from '../types';
 
 export default function Setting({}: RootTabScreenProps<'Setting'>) {

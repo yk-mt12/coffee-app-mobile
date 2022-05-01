@@ -2,8 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import { Platform, StyleSheet } from 'react-native';
 
 import { View } from '../components/Themed';
-import { RatioInput } from '../src/components/Input/RatioInput';
-import { SwitchButton } from '../src/components/Button/SwitchButton';
+import { RatioInput } from '../components/Input/RatioInput';
+import { SwitchButton } from '../components/Button/SwitchButton';
 
 export default function ModalScreen() {
   return (

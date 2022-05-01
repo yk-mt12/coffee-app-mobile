@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import { TextInput, StyleSheet, useColorScheme, SafeAreaView } from 'react-native';
+import { useDispatch } from 'react-redux';
+import { updateWater } from '../../redux/waterSlice';
 
 export const WaterInput = () => {
+  const dispatch = useDispatch();
   const isDarkMode = useColorScheme() === 'dark';
   const [water, setWater] = useState<number>(0);
 
@@ -9,11 +12,13 @@ export const WaterInput = () => {
     <SafeAreaView style={styles.container}>
       <TextInput
         style={[styles.input, isDarkMode ? styles.dark : styles.light]}
-        onChangeText={(newText) => setWater(Number(newText))}
-        placeholder="input amount"
+        placeholder="input"
         maxLength={3}
+        returnKeyType="done"
         keyboardType="numbers-and-punctuation"
         textAlign="center"
+        onChangeText={(newText) => setWater(Number(newText))}
+        onSubmitEditing={() => dispatch(updateWater(water))}
       />
     </SafeAreaView>
   );

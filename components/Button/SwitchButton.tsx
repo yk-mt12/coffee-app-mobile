@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Switch, StyleSheet } from 'react-native';
-import { Text, View } from '../../../components/Themed';
+import { Text, View } from '../Themed';
 
-import { SwitchButtonType } from '../../../types/type';
+import { SwitchButtonType } from '../../types/type';
 
 export const SwitchButton = (props: SwitchButtonType) => {
   const { title } = props;
