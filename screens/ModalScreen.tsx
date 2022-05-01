@@ -1,18 +1,18 @@
 import { StatusBar } from 'expo-status-bar';
 import { Platform, StyleSheet } from 'react-native';
 
-import EditScreenInfo from '../components/EditScreenInfo';
-import { Text, View } from '../components/Themed';
+import { View } from '../components/Themed';
+import { RatioInput } from '../src/components/Input/RatioInput';
+import { SwitchButton } from '../src/components/Button/SwitchButton';
 
 export default function ModalScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Modal</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="/screens/ModalScreen.tsx" />
-
-      {/* Use a light status bar on iOS to account for the black space above the modal */}
       <StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} />
+      <RatioInput title={'Ratio (default: 16)'} />
+      {/* <View style={styles.switchButton}>
+        <SwitchButton title={'default change water or bean'} />
+      </View> */}
     </View>
   );
 }
@@ -20,16 +20,15 @@ export default function ModalScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    paddingLeft: 15,
+    paddingTop: 20,
   },
   title: {
     fontSize: 20,
     fontWeight: 'bold',
   },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
+  switchButton: {
+    marginTop: 15,
+    // width: 600,
   },
 });
