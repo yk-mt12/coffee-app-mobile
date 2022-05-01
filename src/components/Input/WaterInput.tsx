@@ -1,22 +1,21 @@
 import { useState } from 'react';
-import { TextInput, StyleSheet, useColorScheme } from 'react-native';
-import { View } from '../../../components/Themed';
+import { TextInput, StyleSheet, useColorScheme, SafeAreaView } from 'react-native';
 
 export const WaterInput = () => {
   const isDarkMode = useColorScheme() === 'dark';
-  const [inputText, setInputText] = useState<string>("");
+  const [water, setWater] = useState<number>(0);
 
   return (
-    <View style={styles.container}>
-      {/* TODO: 入力値が表示されない問題を解消する */}
+    <SafeAreaView style={styles.container}>
       <TextInput
         style={[styles.input, isDarkMode ? styles.dark : styles.light]}
-        onChangeText={setInputText}
-        placeholder="input water"
-        value={inputText}
-        maxLength={4}
+        onChangeText={(newText) => setWater(Number(newText))}
+        placeholder="input amount"
+        maxLength={3}
+        keyboardType="numbers-and-punctuation"
+        textAlign="center"
       />
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -31,11 +30,13 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   input: {
-    padding: 20,
+    padding: 8,
     marginTop: 8,
     marginRight: 10,
     borderRadius: 10,
     width: 100,
+    height: 40,
+    textAlign: 'center',
   },
   dark: {
     color: '#fff',

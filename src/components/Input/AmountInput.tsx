@@ -1,22 +1,21 @@
 import { useState } from 'react';
-import { TextInput, StyleSheet, useColorScheme } from 'react-native';
-import { View } from '../../../components/Themed';
+import { TextInput, StyleSheet, useColorScheme, SafeAreaView } from 'react-native';
 
 export const AmountInput = () => {
   const isDarkMode = useColorScheme() === 'dark';
-  const [inputText, setInputText] = useState<string>("");
+  const [amount, setAmount] = useState<number>(0);
 
   return (
-    <View style={styles.container}>
-      {/* TODO: 入力値が表示されない問題を解消する */}
+    <SafeAreaView style={styles.container}>
       <TextInput
         style={[styles.input, isDarkMode ? styles.dark : styles.light]}
-        onChangeText={setInputText}
+        onChangeText={(newText) => setAmount(Number(newText))}
         placeholder="input amount"
-        value={inputText}
         maxLength={3}
+        keyboardType="numbers-and-punctuation"
+        textAlign="center"
       />
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -25,11 +24,13 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   input: {
-    padding: 20,
+    padding: 8,
     marginTop: 8,
     marginRight: 10,
     borderRadius: 10,
     width: 100,
+    height: 40,
+    textAlign: 'center',
   },
   dark: {
     color: '#fff',

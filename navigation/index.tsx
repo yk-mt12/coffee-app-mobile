@@ -92,7 +92,7 @@ function BottomTabNavigator() {
         component={CafeAuLaitScreen}
         options={({ navigation }: RootTabScreenProps<'CafeAuLait'>) => ({
           title: 'Cafe Au Lait',
-          tabBarIcon: ({ color }) => <Ionicons name="md-cafe-outline" size={24} color="black" />,
+          tabBarIcon: ({ color }) => <Ionicons name="md-cafe-outline" size={24} color={color} />,
           headerRight: () => (
             <Pressable
               onPress={() => navigation.navigate('Modal')}
@@ -115,7 +115,11 @@ function BottomTabNavigator() {
         options={({ navigation }: RootTabScreenProps<'IceCoffee'>) => ({
           title: 'Ice Coffee',
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="cup-water" size={24} color="black" />
+            <MaterialCommunityIcons
+              name="cup-water"
+              size={24}
+              color={color}
+            />
           ),
           headerRight: () => (
             <Pressable
