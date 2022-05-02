@@ -3,16 +3,15 @@ import { Platform, StyleSheet } from 'react-native';
 
 import { View } from '../components/Themed';
 import { RatioInput } from '../components/Input/RatioInput';
-import { SwitchButton } from '../components/Button/SwitchButton';
+import React from 'react';
+import { DarkModeButton } from '../components/Button/DarkModeButton';
 
 export default function ModalScreen() {
   return (
     <View style={styles.container}>
       <StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} />
       <RatioInput title={'Ratio (default: 16)'} />
-      {/* <View style={styles.switchButton}>
-        <SwitchButton title={'default change water or bean'} />
-      </View> */}
+      {/* <DarkModeButton /> */}
     </View>
   );
 }
@@ -29,6 +28,5 @@ const styles = StyleSheet.create({
   },
   switchButton: {
     marginTop: 15,
-    // width: 600,
   },
 });

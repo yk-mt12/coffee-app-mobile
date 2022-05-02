@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { memo, useState } from 'react';
 import { TextInput, StyleSheet, useColorScheme, SafeAreaView } from 'react-native';
 import { useDispatch } from 'react-redux';
-import { updateWater } from '../../redux/waterSlice';
+import Colors from '../../constants/Colors';
+import { calculateAmount, updateWater } from '../../redux/coffeeSlice';
 
-export const WaterInput = () => {
+export const WaterInput = memo(() => {
   const dispatch = useDispatch();
   const isDarkMode = useColorScheme() === 'dark';
   const [water, setWater] = useState<number>(0);
@@ -18,11 +19,14 @@ export const WaterInput = () => {
         keyboardType="numbers-and-punctuation"
         textAlign="center"
         onChangeText={(newText) => setWater(Number(newText))}
-        onSubmitEditing={() => dispatch(updateWater(water))}
+        onSubmitEditing={() => {
+          dispatch(updateWater(water));
+          dispatch(calculateAmount(water));
+        }}
       />
     </SafeAreaView>
   );
-};
+});
 
 const styles = StyleSheet.create({
   container: {
@@ -45,11 +49,11 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   dark: {
-    color: '#fff',
-    backgroundColor: 'rgba(0, 0, 0, 0.09)',
+    color: Colors['inputView'].wText,
+    backgroundColor: Colors['inputView'].wBackground,
   },
   light: {
-    color: '#333',
-    backgroundColor: 'rgba(64, 64, 64, 0.09)',
+    color: Colors['inputView'].dText,
+    backgroundColor: Colors['inputView'].wBackground,
   },
 });

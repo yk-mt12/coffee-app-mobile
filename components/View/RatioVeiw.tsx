@@ -1,35 +1,32 @@
 import React, { memo } from 'react';
+import { useColorScheme, StyleSheet } from 'react-native';
 import { useSelector } from 'react-redux';
-import { StyleSheet, useColorScheme } from 'react-native';
-
-// import { waterViewType } from "../../types/type";
-import { Text, View } from '../Themed';
 import Colors from '../../constants/Colors';
+import { Text, View } from '../Themed';
 
-
-export const WaterView = memo(() => {
+export const RatioView = memo(() => {
   const isDarkMode = useColorScheme() === 'dark';
-  const water = useSelector((state) => state.coffee.water);
+  const ratio = useSelector((state) => state.coffee.ratio);
 
   return (
     <View style={[styles.container, isDarkMode ? styles.dark : styles.light]}>
-      <Text style={styles.text}>{water}</Text>
+      <Text style={styles.text}>Ratio 1 : {ratio}</Text>
     </View>
   );
 });
 
 const styles = StyleSheet.create({
   container: {
-    padding: 8,
+    padding: 10,
     marginTop: 8,
     marginRight: 10,
     borderRadius: 10,
-    width: 100,
+    width: 150,
     height: 40,
     textAlign: 'center',
   },
   text: {
-    fontSize: 25,
+    fontSize: 20,
     textAlign: 'center',
   },
   dark: {

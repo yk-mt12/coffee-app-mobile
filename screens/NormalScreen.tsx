@@ -2,21 +2,19 @@ import React from 'react';
 import { StyleSheet, useColorScheme } from 'react-native';
 
 import { View } from '../components/Themed';
-import { AmountBox } from '../components/View/AmountBox';
-import { ChangeUiButton } from '../components/Button/ChangeUiButton';
-import { WaterBox } from '../components/View/WaterBox';
 import { RootTabScreenProps } from '../types';
 import { LeftWater } from '../components/View/LeftWater';
 import { RightWater } from '../components/View/RightWater';
 import { useSelector } from 'react-redux';
+import { RatioView } from '../components/View/RatioVeiw';
+import Colors from '../constants/Colors';
 
 export default function NormalScreen({}: RootTabScreenProps<'Normal'>) {
-  const isLeftWater = useSelector(state => state.isWater.isWater)
+  const isLeftWater = useSelector((state) => state.coffee.isWater);
 
   return (
     <View style={styles.container}>
       <View style={[styles.containerItem]}>
-        {/* TODO: ChangeUiButtonをクリックしたときに配置を変更する。 */}
         {isLeftWater ? (
           <>
             <RightWater />
@@ -26,6 +24,9 @@ export default function NormalScreen({}: RootTabScreenProps<'Normal'>) {
             <LeftWater />
           </>
         )}
+      </View>
+      <View style={styles.ratioContainer}>
+        <RatioView />
       </View>
     </View>
   );
@@ -40,12 +41,17 @@ const styles = StyleSheet.create({
     padding: 10,
     flexDirection: 'row',
   },
+  ratioContainer: {
+    marginTop: 39,
+    padding: 10,
+    alignItems: 'center',
+  },
   dark: {
-    color: '#fff',
-    backgroundColor: 'rgba(0, 0, 0, 0.09)',
+    color: Colors['dark'].text,
+    backgroundColor: Colors['dark'].background
   },
   light: {
-    color: '#333',
-    backgroundColor: 'rgba(64, 64, 64, 0.09)',
+    color: Colors['light'].text,
+    backgroundColor: Colors['light'].background,
   },
 });

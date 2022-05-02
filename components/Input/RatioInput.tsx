@@ -1,27 +1,39 @@
-import { useState } from 'react';
+import { memo, useState } from 'react';
 import { TextInput, StyleSheet, useColorScheme } from 'react-native';
+import { useDispatch } from 'react-redux';
+
 import { Text, View } from '../../components/Themed';
-
+import { updateAmount, updateRatio, updateWater } from '../../redux/coffeeSlice';
 import { RatioInputType } from '../../types/type';
+import Colors from '../../constants/Colors';
 
-export const RatioInput = (props: RatioInputType) => {
+export const RatioInput = memo((props: RatioInputType) => {
+  const dispatch = useDispatch();
   const { title } = props;
   const isDarkMode = useColorScheme() === 'dark';
-  const [inputText, setInputText] = useState<string>("");
+  const [ratio, setRatio] = useState<number>(0);
 
   return (
     <View>
       <Text style={styles.title}>{title}</Text>
       <TextInput
         style={[styles.input, isDarkMode ? styles.dark : styles.light]}
-        onChangeText={setInputText}
-        placeholder="input ratio"
-        value={inputText}
+        placeholder="input"
         maxLength={2}
+        returnKeyType="done"
+        keyboardType="numbers-and-punctuation"
+        // textAlign="center"
+        onChangeText={(newText) => setRatio(Number(newText))}
+        onSubmitEditing={() => {
+          dispatch(updateRatio(ratio));
+          dispatch(updateWater(0));
+          dispatch(updateAmount(0));
+
+        }}
       />
     </View>
   );
-};
+});
 
 const styles = StyleSheet.create({
   title: {
@@ -29,18 +41,18 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   input: {
-    padding: 16,
+    padding: 10,
     marginTop: 8,
-    marginRight: 10,
     borderRadius: 10,
-    width: 200,
+    width: '95%',
+    fontSize: 20,
   },
   dark: {
-    color: '#fff',
-    backgroundColor: 'rgba(0, 0, 0, 0.09)',
+    color: Colors['inputView'].wText,
+    backgroundColor: Colors['inputView'].wBackground,
   },
   light: {
-    color: '#333',
-    backgroundColor: 'rgba(64, 64, 64, 0.09)',
+    color: Colors['inputView'].dText,
+    backgroundColor: Colors['inputView'].wBackground,
   },
 });

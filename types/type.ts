@@ -1,3 +1,6 @@
+import { AnyAction } from '@reduxjs/toolkit';
+import { Dispatch } from 'react';
+
 export type AmountButtonType = {
   title: string;
   amount: number;
@@ -14,7 +17,7 @@ export type RatioInputType = {
 
 export type WaterInputType = {
   title: string;
-}
+};
 
 export type WaterViewType = {
   title: string;
@@ -22,8 +25,8 @@ export type WaterViewType = {
 
 export type SwitchButtonType = {
   title: string;
-}
+};
 
 export type AmountViewType = {
   amount: number;
-}
+};

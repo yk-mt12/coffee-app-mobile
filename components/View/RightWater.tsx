@@ -2,11 +2,11 @@ import { StyleSheet } from 'react-native';
 
 import { WaterBox } from '../View/WaterBox';
 import { View } from '../Themed';
-import React from 'react';
+import React, { memo } from 'react';
 import { ChangeUiButton } from '../Button/ChangeUiButton';
 import { AmountBox } from './AmountBox';
 
-export const RightWater = () => {
+export const RightWater = memo(() => {
   return (
     <>
       <View style={styles.rowItem}>
@@ -18,7 +18,7 @@ export const RightWater = () => {
       </View>
     </>
   );
-};
+});
 
 const styles = StyleSheet.create({
   rowItem: {

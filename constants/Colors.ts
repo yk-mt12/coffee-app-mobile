@@ -16,4 +16,15 @@ export default {
     tabIconDefault: '#ccc',
     tabIconSelected: tintColorDark,
   },
+  toggleSwitch: {
+    track: '#fff',
+    trueTrack: '#56DE03',
+    falseTrack: '#DDDDDD',
+  },
+  inputView: {
+    wText: '#fff',
+    dText: '#333',
+    wBackground: 'rgba(168, 168, 168, 0.09)',
+    dBackground: 'rgba(216, 216, 216, 0.09)',
+  },
 };

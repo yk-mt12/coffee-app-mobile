@@ -1,18 +1,19 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useColorScheme, StyleSheet } from 'react-native';
 import { useSelector } from 'react-redux';
+import Colors from '../../constants/Colors';
 import { Text, View } from '../Themed';
 
-export const AmountView = () => {
+export const AmountView = memo(() => {
   const isDarkMode = useColorScheme() === 'dark';
-  const amount = useSelector((state) => state.amount.amount);
+  const amount = useSelector((state) => state.coffee.amount);
 
   return (
     <View style={[styles.container, isDarkMode ? styles.dark : styles.light]}>
       <Text style={styles.text}>{amount}</Text>
     </View>
   );
-};
+});
 
 const styles = StyleSheet.create({
   container: {
@@ -29,11 +30,11 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   dark: {
-    color: '#fff',
-    backgroundColor: 'rgba(0, 0, 0, 0.09)',
+    color: Colors['inputView'].wText,
+    backgroundColor: Colors['inputView'].wBackground,
   },
   light: {
-    color: '#333',
-    backgroundColor: 'rgba(64, 64, 64, 0.09)',
+    color: Colors['inputView'].dText,
+    backgroundColor: Colors['inputView'].wBackground,
   },
 });

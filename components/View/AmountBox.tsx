@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { StyleSheet } from 'react-native';
 
 import { Text, View } from '../Themed';
@@ -7,9 +7,9 @@ import { AmountInput } from '../Input/AmountInput';
 import { AmountView } from './AmountView';
 import { useSelector } from 'react-redux';
 
-export const AmountBox = (props: WaterViewType) => {
+export const AmountBox = memo((props: WaterViewType) => {
   const { title } = props;
-  const isLeftWater = useSelector((state) => state.isWater.isWater);
+  const isLeftWater = useSelector((state) => state.coffee.isWater);
 
   return (
     <View style={styles.container}>
@@ -25,7 +25,7 @@ export const AmountBox = (props: WaterViewType) => {
       )}
     </View>
   );
-};
+});
 
 const styles = StyleSheet.create({
   container: {
