@@ -8,6 +8,7 @@ import { RightWater } from '../components/View/RightWater';
 import { useSelector } from 'react-redux';
 import { RatioView } from '../components/View/RatioVeiw';
 import Colors from '../constants/Colors';
+import { TimerView } from '../components/View/TimerView';
 
 export default function NormalScreen({}: RootTabScreenProps<'Normal'>) {
   const isLeftWater = useSelector((state) => state.coffee.isWater);
@@ -27,6 +28,9 @@ export default function NormalScreen({}: RootTabScreenProps<'Normal'>) {
       </View>
       <View style={styles.ratioContainer}>
         <RatioView />
+      </View>
+      <View>
+          <TimerView />
       </View>
     </View>
   );

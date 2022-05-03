@@ -4,3 +4,8 @@ export type CoffeeType = {
   ratio: number;
   isWater: boolean;
 };
+
+export type TimerType = {
+  isRun: boolean;
+  isReset: boolean;
+};

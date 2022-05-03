@@ -20,7 +20,9 @@ import CafeAuLaitScreen from '../screens/CafeAuLaitScreen';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
 import IceCoffee from '../screens/IceCoffeeScreen';
+import { useDispatch } from 'react-redux';
 // import Setting from '../screens/SettingScreen';
+import { updateRatio } from '../redux/coffeeSlice';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -57,6 +59,7 @@ function RootNavigator() {
 const BottomTab = createBottomTabNavigator<RootTabParamList>();
 
 function BottomTabNavigator() {
+  const dispach = useDispatch();
   const colorScheme = useColorScheme();
 
   return (
@@ -73,7 +76,9 @@ function BottomTabNavigator() {
           tabBarIcon: ({ color }) => <TabBarIcon name="coffee" color={color} />,
           headerRight: () => (
             <Pressable
-              onPress={() => navigation.navigate('Modal')}
+              onPress={() => {
+                navigation.navigate('Modal');
+              }}
               style={({ pressed }) => ({
                 opacity: pressed ? 0.5 : 1,
               })}>
@@ -115,11 +120,7 @@ function BottomTabNavigator() {
         options={({ navigation }: RootTabScreenProps<'IceCoffee'>) => ({
           title: 'Ice Coffee',
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons
-              name="cup-water"
-              size={24}
-              color={color}
-            />
+            <MaterialCommunityIcons name="cup-water" size={24} color={color} />
           ),
           headerRight: () => (
             <Pressable

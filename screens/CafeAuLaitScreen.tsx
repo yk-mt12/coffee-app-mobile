@@ -1,12 +1,36 @@
+import React from 'react';
 import { StyleSheet } from 'react-native';
+import { useSelector } from 'react-redux';
 
-import { Text, View } from '../components/Themed';
+import {  View } from '../components/Themed';
+import { LeftWater } from '../components/View/LeftWater';
+import { RatioView } from '../components/View/RatioVeiw';
+import { RightWater } from '../components/View/RightWater';
+import { TimerView } from '../components/View/TimerView';
+import Colors from '../constants/Colors';
 
 export default function CafeAuLaitScreen() {
+  const isLeftWater = useSelector((state) => state.coffee.isWater);
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Cafe Au Lait</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+      <View style={[styles.containerItem]}>
+        {isLeftWater ? (
+          <>
+            <RightWater />
+          </>
+        ) : (
+          <>
+            <LeftWater />
+          </>
+        )}
+      </View>
+      <View style={styles.ratioContainer}>
+        <RatioView />
+      </View>
+      <View>
+          <TimerView />
+      </View>
     </View>
   );
 }
@@ -14,16 +38,23 @@ export default function CafeAuLaitScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  containerItem: {
+    marginTop: 20,
+    padding: 10,
+    flexDirection: 'row',
+  },
+  ratioContainer: {
+    marginTop: 39,
+    padding: 10,
     alignItems: 'center',
-    justifyContent: 'center',
   },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
+  dark: {
+    color: Colors['dark'].text,
+    backgroundColor: Colors['dark'].background
   },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
+  light: {
+    color: Colors['light'].text,
+    backgroundColor: Colors['light'].background,
   },
 });
