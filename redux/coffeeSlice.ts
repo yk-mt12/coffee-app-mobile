@@ -34,11 +34,11 @@ export const CoffeeSlice = createSlice({
       state.water = Math.round(action.payload * state.ratio);
     },
     calculateIceCoffeeAmount: (state, action) => {
-      state.iceAmount = Math.round(action.payload / state.iceRatio);
+      state.iceAmount = Math.round((action.payload / state.iceRatio) * 2);
     },
-    calculateIceCoffeeWater: (state, action ) => {
-      state.iceWater = Math.round(action.payload * state.iceRatio);
-    }
+    calculateIceCoffeeWater: (state, action) => {
+      state.iceWater = Math.round((action.payload * state.iceRatio) / 2);
+    },
   },
 });
 
@@ -49,6 +49,8 @@ export const {
   updateAmount,
   calculateAmount,
   calculateWater,
+  calculateIceCoffeeWater,
+  calculateIceCoffeeAmount,
 } = CoffeeSlice.actions;
 
 export default CoffeeSlice.reducer;

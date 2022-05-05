@@ -9,7 +9,7 @@ import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
 import { ColorSchemeName, Pressable } from 'react-native';
-import { MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons, Ionicons, Feather } from '@expo/vector-icons';
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
@@ -73,7 +73,7 @@ function BottomTabNavigator() {
         component={NormalScreen}
         options={({ navigation }: RootTabScreenProps<'Normal'>) => ({
           title: 'Coffee',
-          tabBarIcon: ({ color,  }) => <TabBarIcon name="coffee" color={color} />,
+          tabBarIcon: ({ color }) => <Feather name="coffee" size={24} color={color} />,
           headerRight: () => (
             <Pressable
               onPress={() => navigation.navigate('Modal')}
@@ -96,7 +96,7 @@ function BottomTabNavigator() {
         component={CafeAuLaitScreen}
         options={({ navigation }: RootTabScreenProps<'CafeAuLait'>) => ({
           title: 'Cafe Au Lait',
-          tabBarIcon: ({ color }) => <Ionicons name="md-cafe-outline" size={24} color={color} />,
+          tabBarIcon: ({ color }) => <Ionicons name="ios-cafe-outline" size={30} color={color} />,
           headerRight: () => (
             <Pressable
               onPress={() => navigation.navigate('Modal')}

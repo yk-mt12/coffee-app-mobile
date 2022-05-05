@@ -1,7 +1,7 @@
-// import React, { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { StyleSheet } from 'react-native';
-import { useSelector } from 'react-redux';
-// import { useIsFocused } from '@react-navigation/native';
+import { useDispatch, useSelector } from 'react-redux';
+import { useIsFocused } from '@react-navigation/native';
 
 import { View } from '../components/Themed';
 import { LeftWater } from '../components/View/LeftWater';
@@ -9,22 +9,21 @@ import { RatioView } from '../components/View/RatioVeiw';
 import { RightWater } from '../components/View/RightWater';
 import { TimerView } from '../components/View/TimerView';
 import Colors from '../constants/Colors';
-// import Navigation from '../navigation';
-// import { updateRatio } from '../redux/coffeeSlice';
+import { changeScreen } from '../redux/screenSlice';
 
 export default function IceCoffee() {
   const isLeftWater = useSelector((state) => state.coffee.isWater);
-  // const dispatch = useDispatch();
-  // const isForcused = useIsFocused();
+  const dispatch = useDispatch();
+  const isForcused = useIsFocused();
 
   // TODO:
   // 画面遷移時ratioのデフォルト値を変更したい
   // modalから再度画面遷移した際にもイベントが発火してしまう。
-  // useEffect(() => {
-  //   if (isForcused) {
-  //     dispatch(updateRatio(14));
-  //   }
-  // }, [isForcused]);
+  useEffect(() => {
+    if (isForcused) {
+      dispatch(changeScreen('iceCoffee'));
+    }
+  }, [isForcused]);
 
   return (
     <View style={styles.container}>

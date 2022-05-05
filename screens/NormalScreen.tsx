@@ -1,27 +1,27 @@
-// import React, { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { StyleSheet } from 'react-native';
 
 import { View } from '../components/Themed';
 import { RootTabScreenProps } from '../types';
 import { LeftWater } from '../components/View/LeftWater';
 import { RightWater } from '../components/View/RightWater';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RatioView } from '../components/View/RatioVeiw';
 import Colors from '../constants/Colors';
 import { TimerView } from '../components/View/TimerView';
-// import { updateRatio } from '../redux/coffeeSlice';
-// import { useIsFocused } from '@react-navigation/native';
+import { useIsFocused } from '@react-navigation/native';
+import { changeScreen } from '../redux/screenSlice';
 
 export default function NormalScreen({}: RootTabScreenProps<'Normal'>) {
   const isLeftWater = useSelector((state) => state.coffee.isWater);
-  // const dispatch = useDispatch();
-  // const isForcused = useIsFocused();
+  const dispatch = useDispatch();
+  const isForcused = useIsFocused();
 
-  // useEffect(() => {
-  //   if (isForcused) {
-  //     dispatch(updateRatio(16));
-  //   }
-  // }, [isForcused]);
+  useEffect(() => {
+    if (isForcused) {
+      dispatch(changeScreen("normal"));
+    }
+  }, [isForcused]);
 
   return (
     <View style={styles.container}>
