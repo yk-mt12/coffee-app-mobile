@@ -13,7 +13,7 @@ export const WaterView = memo(() => {
 
   return (
     <View style={[styles.container, isDarkMode ? styles.dark : styles.light]}>
-      <Text style={styles.text}>{water}</Text>
+      <Text style={styles.text}>{water} ml</Text>
     </View>
   );
 });

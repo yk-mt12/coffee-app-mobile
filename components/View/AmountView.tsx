@@ -10,7 +10,7 @@ export const AmountView = memo(() => {
 
   return (
     <View style={[styles.container, isDarkMode ? styles.dark : styles.light]}>
-      <Text style={styles.text}>{amount}</Text>
+      <Text style={styles.text}>{amount} g</Text>
     </View>
   );
 });

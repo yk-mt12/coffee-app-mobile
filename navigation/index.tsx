@@ -73,12 +73,10 @@ function BottomTabNavigator() {
         component={NormalScreen}
         options={({ navigation }: RootTabScreenProps<'Normal'>) => ({
           title: 'Coffee',
-          tabBarIcon: ({ color }) => <TabBarIcon name="coffee" color={color} />,
+          tabBarIcon: ({ color,  }) => <TabBarIcon name="coffee" color={color} />,
           headerRight: () => (
             <Pressable
-              onPress={() => {
-                navigation.navigate('Modal');
-              }}
+              onPress={() => navigation.navigate('Modal')}
               style={({ pressed }) => ({
                 opacity: pressed ? 0.5 : 1,
               })}>
@@ -92,6 +90,7 @@ function BottomTabNavigator() {
           ),
         })}
       />
+
       <BottomTab.Screen
         name="CafeAuLait"
         component={CafeAuLaitScreen}

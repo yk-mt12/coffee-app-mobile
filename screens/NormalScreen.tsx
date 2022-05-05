@@ -1,5 +1,5 @@
-import React from 'react';
-import { StyleSheet, useColorScheme } from 'react-native';
+// import React, { useEffect } from 'react';
+import { StyleSheet } from 'react-native';
 
 import { View } from '../components/Themed';
 import { RootTabScreenProps } from '../types';
@@ -9,9 +9,19 @@ import { useSelector } from 'react-redux';
 import { RatioView } from '../components/View/RatioVeiw';
 import Colors from '../constants/Colors';
 import { TimerView } from '../components/View/TimerView';
+// import { updateRatio } from '../redux/coffeeSlice';
+// import { useIsFocused } from '@react-navigation/native';
 
 export default function NormalScreen({}: RootTabScreenProps<'Normal'>) {
   const isLeftWater = useSelector((state) => state.coffee.isWater);
+  // const dispatch = useDispatch();
+  // const isForcused = useIsFocused();
+
+  // useEffect(() => {
+  //   if (isForcused) {
+  //     dispatch(updateRatio(16));
+  //   }
+  // }, [isForcused]);
 
   return (
     <View style={styles.container}>
@@ -30,7 +40,7 @@ export default function NormalScreen({}: RootTabScreenProps<'Normal'>) {
         <RatioView />
       </View>
       <View>
-          <TimerView />
+        <TimerView />
       </View>
     </View>
   );
@@ -52,7 +62,7 @@ const styles = StyleSheet.create({
   },
   dark: {
     color: Colors['dark'].text,
-    backgroundColor: Colors['dark'].background
+    backgroundColor: Colors['dark'].background,
   },
   light: {
     color: Colors['light'].text,

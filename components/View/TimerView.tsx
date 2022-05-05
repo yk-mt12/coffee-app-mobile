@@ -15,17 +15,10 @@ export const TimerView = () => {
       <View style={styles.container}>
         <View style={[styles.sectionStyle, isDarkMode ? styles.dark : styles.light]}>
           <Stopwatch
-            // laps
-            // msecs
             start={isStopwatchStart}
-            // To start
             reset={resetStopwatch}
-            // To reset
             options={options}
-            // Options for the styling
-            // getTime={(time) => {
-            //   console.log(time);
-            // }}
+            style = {isDarkMode ? styles.dark : styles.light}
           />
         </View>
         <View style={[styles.button]}>
@@ -123,6 +116,9 @@ const options = {
     alignItems: 'center',
   },
   text: {
-    fontSize: 95,
+    fontSize: 84,
+    fontWeight: '300',
+    color: Colors['inputView'].wText,
+    margin: 20,
   },
 };

@@ -5,6 +5,9 @@ export const initialState: CoffeeType = {
   amount: 0,
   water: 0,
   ratio: 16,
+  iceAmount: 0,
+  iceWater: 0,
+  iceRatio: 15,
   isWater: false,
 };
 
@@ -25,11 +28,17 @@ export const CoffeeSlice = createSlice({
       state.isWater = !state.isWater;
     },
     calculateAmount: (state, action) => {
-      state.amount = action.payload / state.ratio;
+      state.amount = Math.round(action.payload / state.ratio);
     },
     calculateWater: (state, action) => {
-      state.water = action.payload * state.ratio;
+      state.water = Math.round(action.payload * state.ratio);
     },
+    calculateIceCoffeeAmount: (state, action) => {
+      state.iceAmount = Math.round(action.payload / state.iceRatio);
+    },
+    calculateIceCoffeeWater: (state, action ) => {
+      state.iceWater = Math.round(action.payload * state.iceRatio);
+    }
   },
 });
 

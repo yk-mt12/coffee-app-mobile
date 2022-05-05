@@ -1,6 +1,7 @@
-import React from 'react';
+// import { useIsFocused } from '@react-navigation/native';
+// import React, { useEffect } from 'react';
 import { StyleSheet } from 'react-native';
-import { useSelector } from 'react-redux';
+import {  useSelector } from 'react-redux';
 
 import {  View } from '../components/Themed';
 import { LeftWater } from '../components/View/LeftWater';
@@ -8,9 +9,18 @@ import { RatioView } from '../components/View/RatioVeiw';
 import { RightWater } from '../components/View/RightWater';
 import { TimerView } from '../components/View/TimerView';
 import Colors from '../constants/Colors';
+import { updateRatio } from '../redux/coffeeSlice';
 
 export default function CafeAuLaitScreen() {
   const isLeftWater = useSelector((state) => state.coffee.isWater);
+  // const dispatch = useDispatch();
+  // const isForcused = useIsFocused();
+
+  // useEffect(() => {
+  //   if (isForcused) {
+  //     dispatch(updateRatio(15));
+  //   }
+  // }, [isForcused]);
 
   return (
     <View style={styles.container}>
