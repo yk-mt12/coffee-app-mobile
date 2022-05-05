@@ -3,13 +3,12 @@
  * https://reactnavigation.org/docs/getting-started
  *
  */
-import { FontAwesome } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
 import { ColorSchemeName, Pressable } from 'react-native';
-import { MaterialCommunityIcons, Ionicons, Feather } from '@expo/vector-icons';
+import { MaterialCommunityIcons, Ionicons, Feather, FontAwesome, AntDesign } from '@expo/vector-icons';
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
@@ -21,8 +20,6 @@ import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../typ
 import LinkingConfiguration from './LinkingConfiguration';
 import IceCoffee from '../screens/IceCoffeeScreen';
 import { useDispatch } from 'react-redux';
-// import Setting from '../screens/SettingScreen';
-import { updateRatio } from '../redux/coffeeSlice';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -59,7 +56,6 @@ function RootNavigator() {
 const BottomTab = createBottomTabNavigator<RootTabParamList>();
 
 function BottomTabNavigator() {
-  const dispach = useDispatch();
   const colorScheme = useColorScheme();
 
   return (
@@ -80,8 +76,8 @@ function BottomTabNavigator() {
               style={({ pressed }) => ({
                 opacity: pressed ? 0.5 : 1,
               })}>
-              <FontAwesome
-                name="info-circle"
+              <AntDesign
+                name="setting"
                 size={25}
                 color={Colors[colorScheme].text}
                 style={{ marginRight: 15 }}
@@ -103,8 +99,8 @@ function BottomTabNavigator() {
               style={({ pressed }) => ({
                 opacity: pressed ? 0.5 : 1,
               })}>
-              <FontAwesome
-                name="info-circle"
+              <AntDesign
+                name="setting"
                 size={25}
                 color={Colors[colorScheme].text}
                 style={{ marginRight: 15 }}
@@ -127,8 +123,8 @@ function BottomTabNavigator() {
               style={({ pressed }) => ({
                 opacity: pressed ? 0.5 : 1,
               })}>
-              <FontAwesome
-                name="info-circle"
+              <AntDesign
+                name="setting"
                 size={25}
                 color={Colors[colorScheme].text}
                 style={{ marginRight: 15 }}
@@ -137,14 +133,6 @@ function BottomTabNavigator() {
           ),
         })}
       />
-      {/* <BottomTab.Screen
-        name="Setting"
-        component={Setting}
-        options={{
-          title: 'Setting',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-        }}
-      /> */}
     </BottomTab.Navigator>
   );
 }

@@ -14,8 +14,6 @@ export default function ModalScreen() {
 
   useEffect(() => {
     if (isForcused) {
-      // dispatch(updateAmount(0));
-      // dispatch(updateWater(0));
     }
   }, [isForcused]);
 

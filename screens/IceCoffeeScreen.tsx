@@ -15,17 +15,15 @@ import { updateIceAmount, updateIceWater } from '../redux/coffeeSlice';
 export default function IceCoffee() {
   const isLeftWater = useSelector((state) => state.coffee.isWater);
   const dispatch = useDispatch();
-  const isForcused = useIsFocused();
+  let isForcused = useIsFocused();
 
   // TODO:
   // 画面遷移時ratioのデフォルト値を変更したい
   // modalから再度画面遷移した際にもイベントが発火してしまう。
   useEffect(() => {
-    if (isForcused) {
       dispatch(changeScreen('iceCoffee'));
       dispatch(updateIceAmount(0));
       dispatch(updateIceWater(0));
-    }
   }, [isForcused]);
 
   return (

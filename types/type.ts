@@ -1,12 +1,3 @@
-import { AnyAction } from '@reduxjs/toolkit';
-import { Dispatch } from 'react';
-
-export type AmountButtonType = {
-  title: string;
-  amount: number;
-  onPress: () => void;
-};
-
 export type AmountInputType = {
   title: string;
 };
