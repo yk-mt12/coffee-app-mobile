@@ -22,8 +22,7 @@ export default function ModalScreen() {
   return (
     <View style={styles.container}>
       <StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} />
-      <RatioInput title={'Ratio (default: 16)'} />
-      {/* <DarkModeButton /> */}
+      <RatioInput title={'Ratio (default: 15)'} />
     </View>
   );
 }
