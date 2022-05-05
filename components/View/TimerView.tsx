@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { Text, View } from '../Themed';
 import { Stopwatch } from 'react-native-stopwatch-timer';
 import { TouchableHighlight, StyleSheet } from 'react-native';
 import Colors from '../../constants/Colors';
 import { useColorScheme } from 'react-native';
 
-export const TimerView = () => {
+export const TimerView = memo(() => {
   const isDarkMode = useColorScheme() === 'dark';
   const [isStopwatchStart, setIsStopwatchStart] = useState(false);
   const [resetStopwatch, setResetStopwatch] = useState(false);
@@ -18,7 +18,7 @@ export const TimerView = () => {
             start={isStopwatchStart}
             reset={resetStopwatch}
             options={options}
-            style = {isDarkMode ? styles.dark : styles.light}
+            style={isDarkMode ? styles.dark : styles.light}
           />
         </View>
         <View style={[styles.button]}>
@@ -48,7 +48,7 @@ export const TimerView = () => {
       </View>
     </>
   );
-};
+});
 
 const styles = StyleSheet.create({
   container: {

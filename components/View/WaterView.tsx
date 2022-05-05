@@ -2,18 +2,17 @@ import React, { memo } from 'react';
 import { useSelector } from 'react-redux';
 import { StyleSheet, useColorScheme } from 'react-native';
 
-// import { waterViewType } from "../../types/type";
 import { Text, View } from '../Themed';
 import Colors from '../../constants/Colors';
 
-
 export const WaterView = memo(() => {
   const isDarkMode = useColorScheme() === 'dark';
-  const water = useSelector((state) => state.coffee.water);
+  const { water, iceWater } = useSelector((state) => state.coffee);
+  const nowScreen = useSelector((state) => state.screen.nowScreen);
 
   return (
     <View style={[styles.container, isDarkMode ? styles.dark : styles.light]}>
-      <Text style={styles.text}>{water} ml</Text>
+      <Text style={styles.text}>{nowScreen === 'normal' ? water : iceWater} cc</Text>
     </View>
   );
 });

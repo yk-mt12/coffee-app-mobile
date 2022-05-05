@@ -1,14 +1,15 @@
 import { useIsFocused } from '@react-navigation/native';
 import React, { useEffect } from 'react';
 import { StyleSheet } from 'react-native';
-import {  useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-import {  View } from '../components/Themed';
+import { View } from '../components/Themed';
 import { LeftWater } from '../components/View/LeftWater';
 import { RatioView } from '../components/View/RatioVeiw';
 import { RightWater } from '../components/View/RightWater';
 import { TimerView } from '../components/View/TimerView';
 import Colors from '../constants/Colors';
+import { updateAmount, updateWater } from '../redux/coffeeSlice';
 import { changeScreen } from '../redux/screenSlice';
 
 export default function CafeAuLaitScreen() {
@@ -18,7 +19,9 @@ export default function CafeAuLaitScreen() {
 
   useEffect(() => {
     if (isForcused) {
-      dispatch(changeScreen("cafeAuLait"));
+      dispatch(changeScreen('cafeAuLait'));
+      dispatch(updateAmount(0));
+      dispatch(updateWater(0));
     }
   }, [isForcused]);
 
@@ -39,7 +42,7 @@ export default function CafeAuLaitScreen() {
         <RatioView />
       </View>
       <View>
-          <TimerView />
+        <TimerView />
       </View>
     </View>
   );
@@ -61,7 +64,7 @@ const styles = StyleSheet.create({
   },
   dark: {
     color: Colors['dark'].text,
-    backgroundColor: Colors['dark'].background
+    backgroundColor: Colors['dark'].background,
   },
   light: {
     color: Colors['light'].text,

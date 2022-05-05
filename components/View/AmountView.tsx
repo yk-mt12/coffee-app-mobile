@@ -6,11 +6,12 @@ import { Text, View } from '../Themed';
 
 export const AmountView = memo(() => {
   const isDarkMode = useColorScheme() === 'dark';
-  const amount = useSelector((state) => state.coffee.amount);
+  const { amount, iceAmount } = useSelector((state) => state.coffee);
+  const nowScreen = useSelector((state) => state.screen.nowScreen);
 
   return (
     <View style={[styles.container, isDarkMode ? styles.dark : styles.light]}>
-      <Text style={styles.text}>{amount} g</Text>
+      <Text style={styles.text}>{nowScreen === 'normal' ? amount : iceAmount} g</Text>
     </View>
   );
 });

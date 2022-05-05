@@ -11,6 +11,7 @@ import Colors from '../constants/Colors';
 import { TimerView } from '../components/View/TimerView';
 import { useIsFocused } from '@react-navigation/native';
 import { changeScreen } from '../redux/screenSlice';
+import { updateAmount, updateWater } from '../redux/coffeeSlice';
 
 export default function NormalScreen({}: RootTabScreenProps<'Normal'>) {
   const isLeftWater = useSelector((state) => state.coffee.isWater);
@@ -20,6 +21,8 @@ export default function NormalScreen({}: RootTabScreenProps<'Normal'>) {
   useEffect(() => {
     if (isForcused) {
       dispatch(changeScreen("normal"));
+      dispatch(updateAmount(0));
+      dispatch(updateWater(0));
     }
   }, [isForcused]);
 

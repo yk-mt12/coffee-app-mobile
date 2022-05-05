@@ -7,3 +7,7 @@ export type CoffeeType = {
   iceRatio: number;
   isWater: boolean;
 };
+
+export type screenType = {
+  nowScreen: string;
+}

@@ -1,14 +1,31 @@
 import { memo, useState } from 'react';
-import { TextInput, StyleSheet, useColorScheme, SafeAreaView } from 'react-native';
-import { useDispatch } from 'react-redux';
+import { TextInput, StyleSheet, useColorScheme, SafeAreaView, Switch } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
 import Colors from '../../constants/Colors';
 
-import { calculateWater, updateAmount } from '../../redux/coffeeSlice';
+import {
+  calculateWater,
+  updateAmount,
+  calculateIceCoffeeAmount,
+  calculateIceCoffeeWater,
+} from '../../redux/coffeeSlice';
 
 export const AmountInput = memo(() => {
   const dispatch = useDispatch();
   const isDarkMode = useColorScheme() === 'dark';
   const [amount, setAmount] = useState<number>(0);
+  const nowScreen = useSelector((state) => state.screen.nowScreen);
+
+  function changeAmountInput() {
+    switch (nowScreen) {
+      case 'normal':
+        dispatch(calculateWater(amount));
+      case 'iceCoffee':
+        dispatch(calculateIceCoffeeWater(amount));
+      default:
+        dispatch(calculateWater(amount));
+    }
+  }
 
   return (
     <TextInput
@@ -21,7 +38,7 @@ export const AmountInput = memo(() => {
       onChangeText={(newText) => setAmount(Number(newText))}
       onSubmitEditing={() => {
         dispatch(updateAmount(amount));
-        dispatch(calculateWater(amount));
+        changeAmountInput();
       }}
     />
   );
