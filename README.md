@@ -2,6 +2,9 @@
 ## 概要
 珈琲のためのモバイルアプリケーション
 
+## links
+- [expo go](exp://exp.host/@kitsune_yk/coffee-app?release-channel=default) 
+
 ## 使い方
 1. 珈琲ドリップをする際に使います。
 2. 湯量 or 豆量を入力すると、ratioにある比率を元に適した計算結果を表示します。
