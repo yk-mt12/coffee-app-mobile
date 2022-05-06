@@ -35,13 +35,14 @@ export default {
     stopBackground: 'rgba(255, 59, 48, 0.4)',
   },
   timerButtonDark: {
-    startText:  'rgba(48, 209, 88, 0.4)',
-    startBackground: 'rgba(48, 209, 88, 0.09)',
-    stopText: 'rgba(255, 69, 58, 0.4)',
-    stopBackground: 'rgba(255, 69, 58, 0.09)',
+    startText:  'rgba(48, 209, 88, 0.9)',
+    startBackground: 'rgba(48, 209, 88, 0.3)',
+    stopText: 'rgba(255, 69, 58, 0.9)',
+    stopBackground: 'rgba(255, 69, 58, 0.3)',
   },
   timerResetButton: {
-    text: '#fff',
+    dText: '#333',
+    wText: '#fff',
     background: 'rgb(208, 208, 208)'
   }
 };

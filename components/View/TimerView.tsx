@@ -10,6 +10,87 @@ export const TimerView = memo(() => {
   const [isStopwatchStart, setIsStopwatchStart] = useState(false);
   const [resetStopwatch, setResetStopwatch] = useState(false);
 
+  const styles = StyleSheet.create({
+    container: {
+      marginTop: 15,
+    },
+    sectionStyle: {},
+    button: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      marginTop: 10,
+      marginHorizontal: 40,
+    },
+    buttonText: {
+      fontSize: 20,
+      color: isDarkMode ? Colors['timerResetButton'].
+      dText : Colors['timerResetButton'].wText,
+    },
+    dark: {
+      color: Colors['inputView'].wText,
+      // backgroundColor: Colors['inputView'].wBackground,
+    },
+    light: {
+      color: Colors['inputView'].dText,
+      // backgroundColor: Colors['inputView'].wBackground,
+    },
+    startButton: {
+      width: 80,
+      height: 80,
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: 10,
+      borderRadius: 100,
+
+      backgroundColor: isDarkMode
+        ? Colors['timerButtonDark'].startBackground
+        : Colors['timerButtonLight'].startBackground,
+    },
+    startText: {
+      color: isDarkMode
+        ? Colors['timerButtonDark'].startText
+        : Colors['timerButtonLight'].startText,
+    },
+    stopButton: {
+      backgroundColor: isDarkMode
+        ? Colors['timerButtonDark'].stopBackground
+        : Colors['timerButtonLight'].stopBackground,
+      width: 80,
+      height: 80,
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: 10,
+      borderRadius: 100,
+    },
+    stopText: {
+      color: isDarkMode ? Colors['timerButtonDark'].stopText : Colors['timerButtonLight'].stopText,
+    },
+    resetButton: {
+      backgroundColor: Colors['timerResetButton'].background,
+      width: 80,
+      height: 80,
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: 10,
+      borderRadius: 100,
+    },
+  });
+
+  const options = {
+    container: {
+      padding: 20,
+      borderRadius: 4,
+      width: '98%',
+      alignItems: 'center',
+    },
+    text: {
+      fontSize: 84,
+      fontWeight: '300',
+      color: isDarkMode ? Colors['dark'].text : Colors['light'].text,
+      margin: 20,
+    },
+  };
+
   return (
     <>
       <View style={styles.container}>
@@ -37,10 +118,7 @@ export const TimerView = memo(() => {
             }}
             style={[isStopwatchStart ? styles.stopButton : styles.startButton]}>
             <Text
-              style={[
-                styles.buttonText,
-                // isDarkMode ? styles.darkRightLayout : styles.lightRightLayout,
-              ]}>
+              style={[styles.buttonText, isStopwatchStart ? styles.stopText : styles.startText]}>
               {!isStopwatchStart ? 'START' : 'STOP'}
             </Text>
           </TouchableHighlight>
@@ -49,76 +127,3 @@ export const TimerView = memo(() => {
     </>
   );
 });
-
-const styles = StyleSheet.create({
-  container: {
-    marginTop: 15,
-  },
-  sectionStyle: {},
-  button: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginTop: 10,
-    marginHorizontal: 40,
-  },
-  buttonText: {
-    fontSize: 20,
-  },
-  dark: {
-    color: Colors['inputView'].wText,
-    // backgroundColor: Colors['inputView'].wBackground,
-  },
-  light: {
-    color: Colors['inputView'].dText,
-    // backgroundColor: Colors['inputView'].wBackground,
-  },
-  startButton: {
-    width: 80,
-    height: 80,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 10,
-    borderRadius: 100,
-    color: Colors['timerButtonLight'].startText,
-    backgroundColor: Colors['timerButtonLight'].startBackground,
-  },
-  stopButton: {
-    color: Colors['timerButtonLight'].stopText,
-    backgroundColor: Colors['timerButtonLight'].stopBackground,
-    width: 80,
-    height: 80,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 10,
-    borderRadius: 100,
-  },
-  resetButton: {
-    color: Colors['timerResetButton'].text,
-    backgroundColor: Colors['timerResetButton'].background,
-    width: 80,
-    height: 80,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 10,
-    borderRadius: 100,
-  },
-  darkRightLayout: {
-    // color: Colors['timerButtonDark']
-  },
-  lightRightLayout: {},
-});
-
-const options = {
-  container: {
-    padding: 20,
-    borderRadius: 4,
-    width: '98%',
-    alignItems: 'center',
-  },
-  text: {
-    fontSize: 84,
-    fontWeight: '300',
-    color: Colors['inputView'].wText,
-    margin: 20,
-  },
-};
