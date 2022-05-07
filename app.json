@@ -4,7 +4,7 @@
     "slug": "coffee-app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/coffee_icon.png",
+    "icon": "./src/assets/images/coffee_icon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "splash": {},
@@ -19,12 +19,12 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/coffee_icon.png",
+        "foregroundImage": "./src/assets/images/coffee_icon.png",
         "backgroundColor": "#ffffff"
       }
     },
     "web": {
-      "favicon": "./assets/images/coffee_icon.png"
+      "favicon": "./src/assets/images/coffee_icon.png"
     },
     "description": "ドリップ珈琲のためのアプリケーション。\n抽出量 or 豆量を入力することで比率に適した量が表示されます。",
     "githubUrl": "https://github.com/yk-mt12/coffee-app-mobile"
