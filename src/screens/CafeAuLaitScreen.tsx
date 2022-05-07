@@ -18,9 +18,11 @@ export default function CafeAuLaitScreen() {
   const isForcused = useIsFocused();
 
   useEffect(() => {
-    dispatch(changeScreen('cafeAuLait'));
-    dispatch(updateAmount(0));
-    dispatch(updateWater(0));
+    if (isForcused) {
+      dispatch(changeScreen('cafeAuLait'));
+      dispatch(updateAmount(0));
+      dispatch(updateWater(0));
+    }
   }, [isForcused]);
 
   return (
