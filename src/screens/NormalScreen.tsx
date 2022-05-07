@@ -19,9 +19,11 @@ export default function NormalScreen({}: RootTabScreenProps<'Normal'>) {
   const isForcused = useIsFocused();
 
   useEffect(() => {
-    dispatch(changeScreen('normal'));
-    dispatch(updateAmount(0));
-    dispatch(updateWater(0));
+    if (isForcused) {
+      dispatch(changeScreen('normal'));
+      dispatch(updateAmount(0));
+      dispatch(updateWater(0));
+    }
   }, [isForcused]);
 
   return (

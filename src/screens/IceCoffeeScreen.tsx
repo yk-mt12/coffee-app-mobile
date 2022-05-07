@@ -21,9 +21,11 @@ export default function IceCoffee() {
   // 画面遷移時ratioのデフォルト値を変更したい
   // modalから再度画面遷移した際にもイベントが発火してしまう。
   useEffect(() => {
+    if (isForcused) {
       dispatch(changeScreen('iceCoffee'));
       dispatch(updateIceAmount(0));
       dispatch(updateIceWater(0));
+    }
   }, [isForcused]);
 
   return (

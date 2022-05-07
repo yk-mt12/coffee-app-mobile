@@ -6,7 +6,6 @@ import Colors from '../../constants/Colors';
 import {
   calculateWater,
   updateAmount,
-  calculateIceCoffeeAmount,
   calculateIceCoffeeWater,
 } from '../../../redux/coffeeSlice';
 
