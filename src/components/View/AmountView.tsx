@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { useColorScheme, StyleSheet } from 'react-native';
 import { useSelector } from 'react-redux';
 import Colors from '../../constants/Colors';
@@ -6,12 +6,11 @@ import { Text, View } from '../Themed';
 
 export const AmountView = memo(() => {
   const isDarkMode = useColorScheme() === 'dark';
-  const { amount, iceAmount } = useSelector((state) => state.coffee);
-  const nowScreen = useSelector((state) => state.screen.nowScreen);
+  const { amount } = useSelector((state) => state.coffee);
 
   return (
     <View style={[styles.container, isDarkMode ? styles.dark : styles.light]}>
-      <Text style={styles.text}>{nowScreen === 'normal' ? amount : iceAmount} g</Text>
+      <Text style={styles.text}>{amount} g</Text>
     </View>
   );
 });

@@ -10,17 +10,6 @@ export const WaterInput = memo(() => {
   const [water, setWater] = useState<number>(0);
   const nowScreen = useSelector((state) => state.screen.nowScreen);
 
-  function changeWaterInput() {
-    switch (nowScreen) {
-      case 'normal':
-        dispatch(calculateAmount(water));
-      case 'iceCoffee':
-        dispatch(calculateIceCoffeeAmount(water));
-      default:
-        dispatch(calculateAmount(water));
-    }
-  }
-
   return (
     <SafeAreaView style={styles.container}>
       <TextInput
@@ -33,7 +22,11 @@ export const WaterInput = memo(() => {
         onChangeText={(newText) => setWater(Number(newText))}
         onSubmitEditing={() => {
           dispatch(updateWater(water));
-          changeWaterInput();
+          if (nowScreen === 'normal' || nowScreen === 'cafeAuLait') {
+            dispatch(calculateAmount(water));
+          } else if (nowScreen === 'iceCoffee') {
+            dispatch(calculateIceCoffeeAmount(water));
+          }
         }}
       />
     </SafeAreaView>

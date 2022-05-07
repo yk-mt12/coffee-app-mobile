@@ -3,19 +3,10 @@ import { Platform, StyleSheet } from 'react-native';
 
 import { View } from '../components/Themed';
 import { RatioInput } from '../components/Input/RatioInput';
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { updateAmount, updateWater } from '../../redux/coffeeSlice';
 import { useIsFocused } from '@react-navigation/native';
 
 export default function ModalScreen() {
-  const dispatch = useDispatch();
   const isForcused = useIsFocused();
-
-  useEffect(() => {
-    if (isForcused) {
-    }
-  }, [isForcused]);
 
   return (
     <View style={styles.container}>
