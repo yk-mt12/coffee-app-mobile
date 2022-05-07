@@ -28,7 +28,6 @@ export const RatioInput = memo((props: RatioInputType) => {
           dispatch(updateRatio(ratio));
           dispatch(updateWater(0));
           dispatch(updateAmount(0));
-
         }}
       />
     </View>

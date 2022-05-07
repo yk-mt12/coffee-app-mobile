@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { StyleSheet, useColorScheme } from 'react-native';
 
@@ -7,12 +7,11 @@ import Colors from '../../constants/Colors';
 
 export const WaterView = memo(() => {
   const isDarkMode = useColorScheme() === 'dark';
-  const { water, iceWater } = useSelector((state) => state.coffee);
-  const nowScreen = useSelector((state) => state.screen.nowScreen);
-
+  const { water } = useSelector((state) => state.coffee);
+  
   return (
     <View style={[styles.container, isDarkMode ? styles.dark : styles.light]}>
-      <Text style={styles.text}>{nowScreen === 'normal' ? water : iceWater} cc</Text>
+      <Text style={styles.text}>{water} cc</Text>
     </View>
   );
 });

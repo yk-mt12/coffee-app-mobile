@@ -10,7 +10,7 @@ import { RightWater } from '../components/View/RightWater';
 import { TimerView } from '../components/View/TimerView';
 import Colors from '../constants/Colors';
 import { changeScreen } from '../../redux/screenSlice';
-import { updateIceAmount, updateIceWater } from '../../redux/coffeeSlice';
+import { updateAmount, updateWater } from '../../redux/coffeeSlice';
 
 export default function IceCoffee() {
   const isLeftWater = useSelector((state) => state.coffee.isWater);
@@ -23,8 +23,8 @@ export default function IceCoffee() {
   useEffect(() => {
     if (isForcused) {
       dispatch(changeScreen('iceCoffee'));
-      dispatch(updateIceAmount(0));
-      dispatch(updateIceWater(0));
+      dispatch(updateAmount(0));
+      dispatch(updateWater(0));
     }
   }, [isForcused]);
 
