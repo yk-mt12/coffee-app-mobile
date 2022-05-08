@@ -21,7 +21,6 @@ export const AmountInput = memo(() => {
       textAlign="center"
       onChangeText={(newText) => setAmount(Number(newText))}
       onSubmitEditing={() => {
-        dispatch(updateAmount(amount));
         if (nowScreen === 'cafeAuLait' || nowScreen === 'normal') {
           dispatch(calculateWater(amount));
         } else if (nowScreen === 'iceCoffee') {
