@@ -23,8 +23,7 @@ export const TimerView = memo(() => {
     },
     buttonText: {
       fontSize: 20,
-      color: isDarkMode ? Colors['timerResetButton'].
-      dText : Colors['timerResetButton'].wText,
+      color: isDarkMode ? Colors['timerResetButton'].dText : Colors['timerResetButton'].wText,
     },
     dark: {
       color: Colors['inputView'].wText,
@@ -78,9 +77,8 @@ export const TimerView = memo(() => {
 
   const options = {
     container: {
-      padding: 20,
+      paddingTop: 20,
       borderRadius: 4,
-      width: '98%',
       alignItems: 'center',
     },
     text: {

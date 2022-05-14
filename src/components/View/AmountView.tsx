@@ -19,11 +19,9 @@ const styles = StyleSheet.create({
   container: {
     padding: 8,
     marginTop: 8,
-    marginRight: 10,
     borderRadius: 10,
     width: 100,
     height: 40,
-    textAlign: 'center',
   },
   text: {
     fontSize: 25,
