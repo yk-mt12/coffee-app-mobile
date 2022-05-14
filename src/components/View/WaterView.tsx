@@ -8,7 +8,7 @@ import Colors from '../../constants/Colors';
 export const WaterView = memo(() => {
   const isDarkMode = useColorScheme() === 'dark';
   const { water } = useSelector((state) => state.coffee);
-  
+
   return (
     <View style={[styles.container, isDarkMode ? styles.dark : styles.light]}>
       <Text style={styles.text}>{water} cc</Text>
@@ -20,7 +20,6 @@ const styles = StyleSheet.create({
   container: {
     padding: 8,
     marginTop: 8,
-    marginRight: 10,
     borderRadius: 10,
     width: 100,
     height: 40,

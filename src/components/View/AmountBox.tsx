@@ -30,11 +30,10 @@ export const AmountBox = memo((props: WaterViewType) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    alignItems: 'center',
   },
   title: {
     fontSize: 25,
-    paddingLeft: 30,
-    paddingRight: 30,
-    paddingBottom: 8,
+    paddingBottom: 12,
   },
 });
