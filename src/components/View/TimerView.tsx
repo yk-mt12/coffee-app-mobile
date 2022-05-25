@@ -106,7 +106,8 @@ export const TimerView = memo(() => {
               setIsStopwatchStart(false);
               setResetStopwatch(true);
             }}
-            style={[styles.resetButton]}>
+            style={[styles.resetButton]}
+          >
             <Text style={[styles.buttonText]}>RESET</Text>
           </TouchableHighlight>
           <TouchableHighlight
@@ -114,9 +115,11 @@ export const TimerView = memo(() => {
               setIsStopwatchStart(!isStopwatchStart);
               setResetStopwatch(false);
             }}
-            style={[isStopwatchStart ? styles.stopButton : styles.startButton]}>
+            style={[isStopwatchStart ? styles.stopButton : styles.startButton]}
+          >
             <Text
-              style={[styles.buttonText, isStopwatchStart ? styles.stopText : styles.startText]}>
+              style={[styles.buttonText, isStopwatchStart ? styles.stopText : styles.startText]}
+            >
               {!isStopwatchStart ? 'START' : 'STOP'}
             </Text>
           </TouchableHighlight>

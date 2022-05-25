@@ -8,7 +8,7 @@ import { RootTabScreenProps } from '../../types';
 export default function Setting({}: RootTabScreenProps<'Setting'>) {
   return (
     <View style={styles.container}>
-      <View >
+      <View>
         <RatioInput title={'Ratio(default: 16)'} />
       </View>
     </View>

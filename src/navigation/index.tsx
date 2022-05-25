@@ -8,7 +8,13 @@ import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
 import { ColorSchemeName, Pressable } from 'react-native';
-import { MaterialCommunityIcons, Ionicons, Feather, FontAwesome, AntDesign } from '@expo/vector-icons';
+import {
+  MaterialCommunityIcons,
+  Ionicons,
+  Feather,
+  FontAwesome,
+  AntDesign,
+} from '@expo/vector-icons';
 
 import Colors from '../assets/constants/Colors';
 import useColorScheme from '../../hooks/useColorScheme';
@@ -24,7 +30,8 @@ export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeNa
   return (
     <NavigationContainer
       linking={LinkingConfiguration}
-      theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+      theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}
+    >
       <RootNavigator />
     </NavigationContainer>
   );
@@ -62,7 +69,8 @@ function BottomTabNavigator() {
       initialRouteName="Normal"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
-      }}>
+      }}
+    >
       <BottomTab.Screen
         name="Normal"
         component={NormalScreen}
@@ -74,7 +82,8 @@ function BottomTabNavigator() {
               onPress={() => navigation.navigate('Modal')}
               style={({ pressed }) => ({
                 opacity: pressed ? 0.5 : 1,
-              })}>
+              })}
+            >
               <AntDesign
                 name="setting"
                 size={25}
@@ -97,7 +106,8 @@ function BottomTabNavigator() {
               onPress={() => navigation.navigate('Modal')}
               style={({ pressed }) => ({
                 opacity: pressed ? 0.5 : 1,
-              })}>
+              })}
+            >
               <AntDesign
                 name="setting"
                 size={25}
@@ -121,7 +131,8 @@ function BottomTabNavigator() {
               onPress={() => navigation.navigate('Modal')}
               style={({ pressed }) => ({
                 opacity: pressed ? 0.5 : 1,
-              })}>
+              })}
+            >
               <AntDesign
                 name="setting"
                 size={25}
