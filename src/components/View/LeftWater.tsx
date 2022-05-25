@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 import { WaterBox } from './WaterBox';
-import { View } from '../Themed';
+import { View } from '../../assets/constants/Themed';
 import React, { memo } from 'react';
 import { ChangeUiButton } from '../Button/ChangeUiButton';
 import { AmountBox } from './AmountBox';

@@ -2,10 +2,10 @@ import { memo, useState } from 'react';
 import { TextInput, StyleSheet, useColorScheme } from 'react-native';
 import { useDispatch } from 'react-redux';
 
-import { Text, View } from '../Themed';
+import { Text, View } from '../../assets/constants/Themed';
 import { updateAmount, updateRatio, updateWater } from '../../../redux/coffeeSlice';
 import { RatioInputType } from '../../types/type';
-import Colors from '../../constants/Colors';
+import Colors from '../../assets/constants/Colors';
 
 export const RatioInput = memo((props: RatioInputType) => {
   const dispatch = useDispatch();

@@ -1,8 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import { Platform, StyleSheet } from 'react-native';
 
-import { View } from '../components/Themed';
-import { RatioInput } from '../components/Input/RatioInput';
+import { View } from '../../assets/constants/Themed';
+import { RatioInput } from '../Input/RatioInput';
 import { useIsFocused } from '@react-navigation/native';
 
 export default function ModalScreen() {

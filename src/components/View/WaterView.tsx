@@ -2,8 +2,8 @@ import React, { memo, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { StyleSheet, useColorScheme } from 'react-native';
 
-import { Text, View } from '../Themed';
-import Colors from '../../constants/Colors';
+import { Text, View } from '../../assets/constants/Themed';
+import Colors from '../../assets/constants/Colors';
 
 export const WaterView = memo(() => {
   const isDarkMode = useColorScheme() === 'dark';

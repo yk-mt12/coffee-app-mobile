@@ -1,7 +1,7 @@
 import { memo, useState } from 'react';
 import { TextInput, StyleSheet, useColorScheme, SafeAreaView } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import Colors from '../../constants/Colors';
+import Colors from '../../assets/constants/Colors';
 import { calculateAmount, calculateIceCoffeeAmount, updateWater } from '../../../redux/coffeeSlice';
 
 export const WaterInput = memo(() => {
