@@ -1,8 +1,8 @@
 import React, { memo, useEffect, useState } from 'react';
-import { Text, View } from '../Themed';
+import { Text, View } from '../../assets/constants/Themed';
 import { Stopwatch } from 'react-native-stopwatch-timer';
 import { TouchableHighlight, StyleSheet } from 'react-native';
-import Colors from '../../constants/Colors';
+import Colors from '../../assets/constants/Colors';
 import { useColorScheme } from 'react-native';
 
 export const TimerView = memo(() => {

@@ -5,9 +5,6 @@ export const initialState: CoffeeType = {
   amount: 0,
   water: 0,
   ratio: 15,
-  // iceAmount: 0,
-  // iceWater: 0,
-  // iceRatio: 15,
   isWater: false,
 };
 

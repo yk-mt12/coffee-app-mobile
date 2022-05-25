@@ -1,25 +1,28 @@
-import { useIsFocused } from '@react-navigation/native';
 import React, { useEffect } from 'react';
 import { StyleSheet } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
+import { useIsFocused } from '@react-navigation/native';
 
-import { View } from '../components/Themed';
-import { LeftWater } from '../components/View/LeftWater';
-import { RatioView } from '../components/View/RatioVeiw';
-import { RightWater } from '../components/View/RightWater';
-import { TimerView } from '../components/View/TimerView';
-import Colors from '../constants/Colors';
-import { updateAmount, updateWater } from '../../redux/coffeeSlice';
-import { changeScreen } from '../../redux/screenSlice';
+import { View } from '../../assets/constants/Themed';
+import { LeftWater } from '../View/LeftWater';
+import { RatioView } from '../View/RatioVeiw';
+import { RightWater } from '../View/RightWater';
+import { TimerView } from '../View/TimerView';
+import Colors from '../../assets/constants/Colors';
+import { updateAmount, updateWater } from '../../../redux/coffeeSlice';
+import { changeScreen } from '../../../redux/screenSlice';
 
-export default function CafeAuLaitScreen() {
+export default function IceCoffee() {
   const isLeftWater = useSelector((state) => state.coffee.isWater);
   const dispatch = useDispatch();
-  const isForcused = useIsFocused();
+  let isForcused = useIsFocused();
 
+  // TODO:
+  // 画面遷移時ratioのデフォルト値を変更したい
+  // modalから再度画面遷移した際にもイベントが発火してしまう。
   useEffect(() => {
     if (isForcused) {
-      dispatch(changeScreen('cafeAuLait'));
+      dispatch(changeScreen('iceCoffee'));
       dispatch(updateAmount(0));
       dispatch(updateWater(0));
     }

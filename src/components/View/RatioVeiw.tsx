@@ -1,16 +1,19 @@
-import React, { memo } from 'react';
+import React, { memo, useEffect } from 'react';
 import { useColorScheme, StyleSheet } from 'react-native';
 import { useSelector } from 'react-redux';
-import Colors from '../../constants/Colors';
-import { Text, View } from '../Themed';
+import Colors from '../../assets/constants/Colors';
+import { Text, View } from '../../assets/constants/Themed';
 
 export const RatioView = memo(() => {
   const isDarkMode = useColorScheme() === 'dark';
-  const ratio = useSelector((state) => state.coffee.ratio);
+  const ratio: number = useSelector((state) => state.coffee.ratio);
+  const { nowScreen } = useSelector((state) => state.screen);
 
   return (
     <View style={[styles.container, isDarkMode ? styles.dark : styles.light]}>
-      <Text style={styles.text}>Ratio 1 : {ratio}</Text>
+      <Text style={styles.text}>
+        Ratio {nowScreen == 'iceCoffee' ? 2 : 1} : {ratio}
+      </Text>
     </View>
   );
 });

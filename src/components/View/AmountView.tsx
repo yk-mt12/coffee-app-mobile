@@ -1,8 +1,8 @@
 import React, { memo, useEffect, useState } from 'react';
 import { useColorScheme, StyleSheet } from 'react-native';
 import { useSelector } from 'react-redux';
-import Colors from '../../constants/Colors';
-import { Text, View } from '../Themed';
+import Colors from '../../assets/constants/Colors';
+import { Text, View } from '../../assets/constants/Themed';
 
 export const AmountView = memo(() => {
   const isDarkMode = useColorScheme() === 'dark';

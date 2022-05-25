@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { StyleSheet } from 'react-native';
 
-import { Text, View } from '../Themed';
+import { Text, View } from '../../assets/constants/Themed';
 import { WaterViewType } from '../../types/type';
 import { AmountInput } from '../Input/AmountInput';
 import { AmountView } from './AmountView';

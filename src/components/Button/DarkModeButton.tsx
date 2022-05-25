@@ -1,7 +1,7 @@
 import React, { useState, memo, useEffect } from 'react';
 import { StyleSheet, Switch, Appearance } from 'react-native';
-import { Text, View } from '../Themed';
-import Colors from '../../constants/Colors';
+import { Text, View } from '../../assets/constants/Themed';
+import Colors from '../../assets/constants/Colors';
 
 export const DarkModeButton = memo(() => {
   const [isEnabled, setIsEnabled] = useState(false);

@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-import { Text, View } from '../Themed';
+import { Text, View } from '../../assets/constants/Themed';
 import { WaterViewType } from '../../types/type';
 import { WaterInput } from '../Input/WaterInput';
 import { WaterView } from './WaterView';

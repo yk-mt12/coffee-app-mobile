@@ -10,16 +10,15 @@ import * as React from 'react';
 import { ColorSchemeName, Pressable } from 'react-native';
 import { MaterialCommunityIcons, Ionicons, Feather, FontAwesome, AntDesign } from '@expo/vector-icons';
 
-import Colors from '../constants/Colors';
+import Colors from '../assets/constants/Colors';
 import useColorScheme from '../../hooks/useColorScheme';
-import ModalScreen from '../screens/ModalScreen';
-import NotFoundScreen from '../screens/NotFoundScreen';
-import NormalScreen from '../screens/NormalScreen';
-import CafeAuLaitScreen from '../screens/CafeAuLaitScreen';
+import ModalScreen from '../components/screens/ModalScreen';
+import NotFoundScreen from '../components/screens/NotFoundScreen';
+import NormalScreen from '../components/screens/NormalScreen';
+import CafeAuLaitScreen from '../components/screens/CafeAuLaitScreen';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../../types';
 import LinkingConfiguration from './LinkingConfiguration';
-import IceCoffee from '../screens/IceCoffeeScreen';
-import { useDispatch } from 'react-redux';
+import IceCoffee from '../components/screens/IceCoffeeScreen';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (

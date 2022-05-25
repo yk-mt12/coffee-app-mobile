@@ -1,26 +1,25 @@
+import { useIsFocused } from '@react-navigation/native';
 import React, { useEffect } from 'react';
 import { StyleSheet } from 'react-native';
-
-import { View } from '../components/Themed';
-import { RootTabScreenProps } from '../../types';
-import { LeftWater } from '../components/View/LeftWater';
-import { RightWater } from '../components/View/RightWater';
 import { useDispatch, useSelector } from 'react-redux';
-import { RatioView } from '../components/View/RatioVeiw';
-import Colors from '../constants/Colors';
-import { TimerView } from '../components/View/TimerView';
-import { useIsFocused } from '@react-navigation/native';
-import { changeScreen } from '../../redux/screenSlice';
-import { updateAmount, updateWater } from '../../redux/coffeeSlice';
 
-export default function NormalScreen({}: RootTabScreenProps<'Normal'>) {
+import { View } from '../../assets/constants/Themed';
+import { LeftWater } from '../View/LeftWater';
+import { RatioView } from '../View/RatioVeiw';
+import { RightWater } from '../View/RightWater';
+import { TimerView } from '../View/TimerView';
+import Colors from '../../assets/constants/Colors';
+import { updateAmount, updateWater } from '../../../redux/coffeeSlice';
+import { changeScreen } from '../../../redux/screenSlice';
+
+export default function CafeAuLaitScreen() {
   const isLeftWater = useSelector((state) => state.coffee.isWater);
   const dispatch = useDispatch();
   const isForcused = useIsFocused();
 
   useEffect(() => {
     if (isForcused) {
-      dispatch(changeScreen('normal'));
+      dispatch(changeScreen('cafeAuLait'));
       dispatch(updateAmount(0));
       dispatch(updateWater(0));
     }
