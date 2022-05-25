@@ -28,4 +28,4 @@ const styles = StyleSheet.create({
     paddingLeft: 30,
     paddingRight: 30,
   },
-})
+});
