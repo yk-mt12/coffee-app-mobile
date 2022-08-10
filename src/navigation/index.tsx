@@ -21,7 +21,7 @@ import useColorScheme from '../../hooks/useColorScheme';
 import ModalScreen from '../components/screens/ModalScreen';
 import NotFoundScreen from '../components/screens/NotFoundScreen';
 import NormalScreen from '../components/screens/NormalScreen';
-import CafeAuLaitScreen from '../components/screens/CafeAuLaitScreen';
+// import CafeAuLaitScreen from '../components/screens/CafeAuLaitScreen';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../../types';
 import LinkingConfiguration from './LinkingConfiguration';
 import IceCoffee from '../components/screens/IceCoffeeScreen';
@@ -30,8 +30,7 @@ export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeNa
   return (
     <NavigationContainer
       linking={LinkingConfiguration}
-      theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}
-    >
+      theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <RootNavigator />
     </NavigationContainer>
   );
@@ -49,7 +48,7 @@ function RootNavigator() {
       <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} />
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
-        <Stack.Screen name="Modal" component={ModalScreen} />
+        <Stack.Screen name="Setting" component={ModalScreen} />
       </Stack.Group>
     </Stack.Navigator>
   );
@@ -69,8 +68,7 @@ function BottomTabNavigator() {
       initialRouteName="Normal"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
-      }}
-    >
+      }}>
       <BottomTab.Screen
         name="Normal"
         component={NormalScreen}
@@ -79,11 +77,10 @@ function BottomTabNavigator() {
           tabBarIcon: ({ color }) => <Feather name="coffee" size={24} color={color} />,
           headerRight: () => (
             <Pressable
-              onPress={() => navigation.navigate('Modal')}
+              onPress={() => navigation.navigate('Setting')}
               style={({ pressed }) => ({
                 opacity: pressed ? 0.5 : 1,
-              })}
-            >
+              })}>
               <AntDesign
                 name="setting"
                 size={25}
@@ -95,7 +92,7 @@ function BottomTabNavigator() {
         })}
       />
 
-      <BottomTab.Screen
+      {/* <BottomTab.Screen
         name="CafeAuLait"
         component={CafeAuLaitScreen}
         options={({ navigation }: RootTabScreenProps<'CafeAuLait'>) => ({
@@ -117,7 +114,8 @@ function BottomTabNavigator() {
             </Pressable>
           ),
         })}
-      />
+      /> */}
+
       <BottomTab.Screen
         name="IceCoffee"
         component={IceCoffee}
@@ -128,11 +126,10 @@ function BottomTabNavigator() {
           ),
           headerRight: () => (
             <Pressable
-              onPress={() => navigation.navigate('Modal')}
+              onPress={() => navigation.navigate('Setting')}
               style={({ pressed }) => ({
                 opacity: pressed ? 0.5 : 1,
-              })}
-            >
+              })}>
               <AntDesign
                 name="setting"
                 size={25}
