@@ -30,14 +30,14 @@ const linking: LinkingOptions<RootStackParamList> = {
               IceCoffeeScreen: 'Ice coffee',
             },
           },
-          Setting: {
-            screens: {
-              SettingScreen: 'Setting',
-            },
-          },
+          // Setting: {
+          //   screens: {
+          //     SettingScreen: 'Setting',
+          //   },
+          // },
         },
       },
-      Modal: 'modal',
+      Setting: 'Setting',
       NotFound: '*',
     },
   },

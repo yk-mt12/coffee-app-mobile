@@ -15,7 +15,7 @@ import { changeScreen } from '../../../redux/screenSlice';
 export default function IceCoffee() {
   const isLeftWater = useSelector((state) => state.coffee.isWater);
   const dispatch = useDispatch();
-  let isForcused = useIsFocused();
+  const isForcused = useIsFocused();
 
   // TODO:
   // 画面遷移時ratioのデフォルト値を変更したい

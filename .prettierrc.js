@@ -4,4 +4,5 @@ module.exports = {
   trailingComma: 'all',
   printWidth: 100,
   endOfLine: 'lf',
+  format: "prettier --check ./src",
 };
