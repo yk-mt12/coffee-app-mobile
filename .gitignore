@@ -1,0 +1,16 @@
+# Node
+node_modules
+
+# Expo
+.expo
+web-build
+
+# Env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+apps/bare-expo/deploy-url.txt
+
+# VSCODE
+.vscode
