@@ -1,5 +1,4 @@
-# [coffee-app-mobile](https://coffee-app-mobile.netlify.app/)
-PC　or タブレット端末で開いていただけると見やすいです。下記のExpo go環境であれば、うまく表示されています。
+# coffee-app-mobile
 ## 概要
 珈琲のためのモバイルアプリケーションver2.0
 制作した背景やこのアプリによって解決することは、[珈琲のためのアプリver1.0](https://github.com/yk-mt12/good-time-with-coffee)を参照してください。
