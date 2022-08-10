@@ -1,9 +1,7 @@
 {
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
-    "strict": true
-  },
-  "compilerOptions": {
+    "strict": true,
     "lib": ["es6", "dom"],
     "noImplicitAny": true,
     "noImplicitThis": true,

@@ -14,3 +14,4 @@ apps/bare-expo/deploy-url.txt
 
 # VSCODE
 .vscode
+node_modules
