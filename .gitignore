@@ -1,5 +1,5 @@
 # Node
-./node_modules
+node_modules/*
 
 # Expo
 .expo
@@ -14,3 +14,8 @@ apps/bare-expo/deploy-url.txt
 
 # VSCODE
 .vscode
+
+# expo
+*.expo
+*.expo-shared
+
