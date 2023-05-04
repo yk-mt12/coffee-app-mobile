@@ -19,9 +19,7 @@ export const TimerView = memo(() => {
   }
 
   const styles = StyleSheet.create({
-    container: {
-      marginTop: 15,
-    },
+    container: {},
     sectionStyle: {},
     button: {
       flexDirection: 'row',
@@ -29,12 +27,13 @@ export const TimerView = memo(() => {
       marginTop: 10,
       marginHorizontal: 40,
     },
+    buttonText: {},
     resetText: {
-      fontSize: 20,
-      color: isDarkMode ?  Colors['light'].text : Colors['dark'].text,
+      fontSize: 14,
+      color: isDarkMode ? Colors['light'].text : Colors['dark'].text,
     },
     lapText: {
-      fontSize: 20,
+      fontSize: 14,
       color: isDarkMode ? Colors['light'].text : Colors['dark'].text,
     },
     dark: {
@@ -58,8 +57,7 @@ export const TimerView = memo(() => {
         : Colors['timerButtonLight'].startBackground,
     },
     startText: {
-      fontSize: 20,
-
+      fontSize: 14,
       color: isDarkMode
         ? Colors['timerButtonDark'].startText
         : Colors['timerButtonLight'].startText,
@@ -76,12 +74,12 @@ export const TimerView = memo(() => {
       borderRadius: 100,
     },
     stopText: {
-      fontSize: 20,
-
+      fontSize: 14,
       color: isDarkMode ? Colors['timerButtonDark'].stopText : Colors['timerButtonLight'].stopText,
     },
     resetButton: {
       backgroundColor: '#414141',
+      fontSize: 14,
       width: 80,
       height: 80,
       justifyContent: 'center',
@@ -117,8 +115,8 @@ export const TimerView = memo(() => {
 
   // reset button が押された時、Lapもリセットする
   useEffect(() => {
-    setLapArray([])
-  }, [resetStopwatch])
+    setLapArray([]);
+  }, [resetStopwatch]);
 
   return (
     <>
@@ -138,8 +136,13 @@ export const TimerView = memo(() => {
               !isStopwatchStart && setIsStopwatchStart(false);
               !isStopwatchStart ? setResetStopwatch(true) : setLapArray([...lapArray, currentTime]);
             }}
-            style={[!isStopwatchStart ? styles.resetButton : styles.lapButton, isStopwatchStart && { opacity: 0.3 }]}>
-            <Text style={[!isStopwatchStart ? styles.resetText : styles.lapText]}>{!isStopwatchStart ? 'RESET' : 'Lap'}</Text>
+            style={[
+              !isStopwatchStart ? styles.resetButton : styles.lapButton,
+              isStopwatchStart && { opacity: 0.3 },
+            ]}>
+            <Text style={[!isStopwatchStart ? styles.resetText : styles.lapText]}>
+              {!isStopwatchStart ? 'リセット' : 'ラップ'}
+            </Text>
           </TouchableHighlight>
           <TouchableHighlight
             onPress={() => {
@@ -149,7 +152,7 @@ export const TimerView = memo(() => {
             style={[isStopwatchStart ? styles.stopButton : styles.startButton]}>
             <Text
               style={[styles.buttonText, isStopwatchStart ? styles.stopText : styles.startText]}>
-              {!isStopwatchStart ? 'START' : 'STOP'}
+              {!isStopwatchStart ? '開始' : '停止'}
             </Text>
           </TouchableHighlight>
         </View>

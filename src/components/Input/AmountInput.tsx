@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Colors from '../../assets/constants/Colors';
 
 import { calculateWater, updateAmount, calculateIceCoffeeWater } from '../../../redux/coffeeSlice';
+import React from 'react';
 
 export const AmountInput = memo(() => {
   const dispatch = useDispatch();
