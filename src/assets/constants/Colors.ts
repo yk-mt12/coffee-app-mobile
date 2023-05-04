@@ -43,6 +43,5 @@ export default {
   timerResetButton: {
     dText: '#333',
     wText: '#fff',
-    background: 'rgb(208, 208, 208)',
   },
 };
