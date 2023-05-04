@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { StyleSheet } from 'react-native';
+import { ScrollView, StyleSheet } from 'react-native';
 
 import { View } from '../../assets/constants/Themed';
 import { RootTabScreenProps } from '../../../types';
@@ -27,25 +27,27 @@ export default function NormalScreen({}: RootTabScreenProps<'Normal'>) {
   }, [isForcused]);
 
   return (
-    <View style={styles.container}>
-      <View style={[styles.containerItem]}>
-        {isLeftWater ? (
-          <>
-            <RightWater />
-          </>
-        ) : (
-          <>
-            <LeftWater />
-          </>
-        )}
+    <ScrollView>
+      <View style={styles.container}>
+        <View style={[styles.containerItem]}>
+          {isLeftWater ? (
+            <>
+              <RightWater />
+            </>
+          ) : (
+            <>
+              <LeftWater />
+            </>
+          )}
+        </View>
+        <View style={styles.ratioContainer}>
+          <RatioView />
+        </View>
+        <View>
+          <TimerView />
+        </View>
       </View>
-      <View style={styles.ratioContainer}>
-        <RatioView />
-      </View>
-      <View>
-        <TimerView />
-      </View>
-    </View>
+    </ScrollView>
   );
 }
 

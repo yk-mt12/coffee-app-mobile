@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { StyleSheet } from 'react-native';
+import { ScrollView, StyleSheet } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { useIsFocused } from '@react-navigation/native';
 
@@ -29,25 +29,27 @@ export default function IceCoffee() {
   }, [isForcused]);
 
   return (
-    <View style={styles.container}>
-      <View style={[styles.containerItem]}>
-        {isLeftWater ? (
-          <>
-            <RightWater />
-          </>
-        ) : (
-          <>
-            <LeftWater />
-          </>
-        )}
+    <ScrollView>
+      <View style={styles.container}>
+        <View style={[styles.containerItem]}>
+          {isLeftWater ? (
+            <>
+              <RightWater />
+            </>
+          ) : (
+            <>
+              <LeftWater />
+            </>
+          )}
+        </View>
+        <View style={styles.ratioContainer}>
+          <RatioView />
+        </View>
+        <View>
+          <TimerView />
+        </View>
       </View>
-      <View style={styles.ratioContainer}>
-        <RatioView />
-      </View>
-      <View>
-        <TimerView />
-      </View>
-    </View>
+    </ScrollView>
   );
 }
 
