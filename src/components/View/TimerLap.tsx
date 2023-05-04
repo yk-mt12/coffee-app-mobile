@@ -3,15 +3,14 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import moment from 'moment';
 
 interface Lap {
-  lapTime: any;
+  lap: any;
 }
 
 interface TimerLapProps {
   lapArray: Lap[];
 }
 
-const TimerLap= ({ lapArray }: TimerLapProps) => {
-
+const TimerLap = ({ lapArray }: TimerLapProps) => {
   const renderLap = (lap: Lap, index: number) => {
     return (
       <View style={styles.lapRow}>
@@ -33,11 +32,7 @@ const TimerLap= ({ lapArray }: TimerLapProps) => {
     return lapArray.map((lap, index) => renderLap(lap, index));
   };
 
-  return (
-    <View style={styles.container}>
-      {renderLapList()}
-    </View>
-  );
+  return <View style={styles.container}>{renderLapList()}</View>;
 };
 
 const styles = StyleSheet.create({
