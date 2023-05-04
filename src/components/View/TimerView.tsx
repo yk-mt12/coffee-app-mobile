@@ -16,7 +16,6 @@ export const TimerView = memo(() => {
 
   function getFormattedTime(time: any) {
     currentTime = time;
-    console.log(currentTime)
   }
 
   const styles = StyleSheet.create({
@@ -30,9 +29,13 @@ export const TimerView = memo(() => {
       marginTop: 10,
       marginHorizontal: 40,
     },
-    buttonText: {
+    resetText: {
       fontSize: 20,
-      color: isDarkMode ? Colors['timerResetButton'].dText : Colors['timerResetButton'].wText,
+      color: isDarkMode ?  Colors['light'].text : Colors['dark'].text,
+    },
+    lapText: {
+      fontSize: 20,
+      color: isDarkMode ? Colors['light'].text : Colors['dark'].text,
     },
     dark: {
       color: Colors['inputView'].wText,
@@ -55,6 +58,8 @@ export const TimerView = memo(() => {
         : Colors['timerButtonLight'].startBackground,
     },
     startText: {
+      fontSize: 20,
+
       color: isDarkMode
         ? Colors['timerButtonDark'].startText
         : Colors['timerButtonLight'].startText,
@@ -71,12 +76,22 @@ export const TimerView = memo(() => {
       borderRadius: 100,
     },
     stopText: {
+      fontSize: 20,
+
       color: isDarkMode ? Colors['timerButtonDark'].stopText : Colors['timerButtonLight'].stopText,
     },
     resetButton: {
-      backgroundColor: isStopwatchStart
-        ? Colors['timerResetButton'].disabledBackground
-        : Colors['timerResetButton'].background,
+      backgroundColor: '#414141',
+      width: 80,
+      height: 80,
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: 10,
+      borderRadius: 100,
+    },
+    lapButton: {
+      backgroundColor: '#414141',
+      color: Colors['light'].text,
       width: 80,
       height: 80,
       justifyContent: 'center',
@@ -118,8 +133,8 @@ export const TimerView = memo(() => {
               !isStopwatchStart && setIsStopwatchStart(false);
               !isStopwatchStart ? setResetStopwatch(true) : setLapArray([...lapArray, currentTime]);
             }}
-            style={[styles.resetButton, isStopwatchStart && { opacity: 0.3 }]}>
-            <Text style={[styles.buttonText]}>{!isStopwatchStart ? 'RESET' : 'Lap'}</Text>
+            style={[!isStopwatchStart ? styles.resetButton : styles.lapButton, isStopwatchStart && { opacity: 0.3 }]}>
+            <Text style={[!isStopwatchStart ? styles.resetText : styles.lapText]}>{!isStopwatchStart ? 'RESET' : 'Lap'}</Text>
           </TouchableHighlight>
           <TouchableHighlight
             onPress={() => {
