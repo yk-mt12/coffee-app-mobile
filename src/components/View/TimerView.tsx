@@ -115,6 +115,11 @@ export const TimerView = memo(() => {
     },
   };
 
+  // reset button が押された時、Lapもリセットする
+  useEffect(() => {
+    setLapArray([])
+  }, [resetStopwatch])
+
   return (
     <>
       <View style={styles.container}>
