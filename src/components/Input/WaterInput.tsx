@@ -3,6 +3,7 @@ import { TextInput, StyleSheet, useColorScheme, SafeAreaView } from 'react-nativ
 import { useDispatch, useSelector } from 'react-redux';
 import Colors from '../../assets/constants/Colors';
 import { calculateAmount, calculateIceCoffeeAmount, updateWater } from '../../../redux/coffeeSlice';
+import React from 'react';
 
 export const WaterInput = memo(() => {
   const dispatch = useDispatch();
@@ -14,7 +15,7 @@ export const WaterInput = memo(() => {
     <SafeAreaView style={styles.container}>
       <TextInput
         style={[styles.input, isDarkMode ? styles.dark : styles.light]}
-        placeholder="input"
+        placeholder="入力"
         maxLength={3}
         returnKeyType="done"
         keyboardType="numbers-and-punctuation"
@@ -44,7 +45,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   input: {
-    padding: 8,
+    padding: '12px 8px',
     marginTop: 8,
     borderRadius: 10,
     width: 100,

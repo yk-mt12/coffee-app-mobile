@@ -14,7 +14,7 @@ export const AmountInput = memo(() => {
   return (
     <TextInput
       style={[styles.input, isDarkMode ? styles.dark : styles.light]}
-      placeholder="input"
+      placeholder="入力"
       maxLength={3}
       returnKeyType="done"
       keyboardType="numbers-and-punctuation"
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   input: {
-    padding: 8,
+    padding: '12px 8px',
     marginTop: 8,
     borderRadius: 10,
     width: 100,
