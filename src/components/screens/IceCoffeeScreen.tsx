@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   ratioContainer: {
-    marginTop: 39,
+    marginTop: 16,
     padding: 10,
     alignItems: 'center',
   },

@@ -21,7 +21,6 @@ export const RatioView = memo(() => {
 const styles = StyleSheet.create({
   container: {
     padding: 10,
-    marginTop: 8,
     marginRight: 10,
     borderRadius: 10,
     width: 150,

@@ -56,12 +56,12 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   containerItem: {
-    marginTop: 20,
+    marginTop: 16,
     padding: 10,
     flexDirection: 'row',
   },
   ratioContainer: {
-    marginTop: 39,
+    marginTop: 24,
     padding: 10,
     alignItems: 'center',
   },
