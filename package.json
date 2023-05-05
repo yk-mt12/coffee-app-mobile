@@ -15,6 +15,12 @@
     "test": "jest --watchAll",
     "prepare": "husky install"
   },
+  "lint-staged": {
+    "*.{js,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  },
   "jest": {
     "preset": "jest-expo"
   },
