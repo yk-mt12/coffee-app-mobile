@@ -4,16 +4,22 @@ import { Stopwatch } from 'react-native-stopwatch-timer';
 import { TouchableHighlight, StyleSheet } from 'react-native';
 import Colors from '../../assets/constants/Colors';
 import { useColorScheme } from 'react-native';
+import TimerLap from './TimerLap';
 
 export const TimerView = memo(() => {
   const isDarkMode = useColorScheme() === 'dark';
-  const [isStopwatchStart, setIsStopwatchStart] = useState(false);
-  const [resetStopwatch, setResetStopwatch] = useState(false);
+  const [isStopwatchStart, setIsStopwatchStart] = useState<boolean>(false); // false→タイマー停止中, true→タイマー起動中
+  const [resetStopwatch, setResetStopwatch] = useState<boolean>(false);
+  const [lapArray, setLapArray] = useState([]);
+
+  let currentTime: any = null;
+
+  function getFormattedTime(time: any) {
+    currentTime = time;
+  }
 
   const styles = StyleSheet.create({
-    container: {
-      marginTop: 15,
-    },
+    container: {},
     sectionStyle: {},
     button: {
       flexDirection: 'row',
@@ -21,9 +27,14 @@ export const TimerView = memo(() => {
       marginTop: 10,
       marginHorizontal: 40,
     },
-    buttonText: {
-      fontSize: 20,
-      color: isDarkMode ? Colors['timerResetButton'].dText : Colors['timerResetButton'].wText,
+    buttonText: {},
+    resetText: {
+      fontSize: 14,
+      color: isDarkMode ? Colors['light'].text : Colors['dark'].text,
+    },
+    lapText: {
+      fontSize: 14,
+      color: isDarkMode ? Colors['light'].text : Colors['dark'].text,
     },
     dark: {
       color: Colors['inputView'].wText,
@@ -46,6 +57,7 @@ export const TimerView = memo(() => {
         : Colors['timerButtonLight'].startBackground,
     },
     startText: {
+      fontSize: 14,
       color: isDarkMode
         ? Colors['timerButtonDark'].startText
         : Colors['timerButtonLight'].startText,
@@ -62,10 +74,22 @@ export const TimerView = memo(() => {
       borderRadius: 100,
     },
     stopText: {
+      fontSize: 14,
       color: isDarkMode ? Colors['timerButtonDark'].stopText : Colors['timerButtonLight'].stopText,
     },
     resetButton: {
-      backgroundColor: Colors['timerResetButton'].background,
+      backgroundColor: '#414141',
+      fontSize: 14,
+      width: 80,
+      height: 80,
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: 10,
+      borderRadius: 100,
+    },
+    lapButton: {
+      backgroundColor: '#414141',
+      color: Colors['light'].text,
       width: 80,
       height: 80,
       justifyContent: 'center',
@@ -89,6 +113,11 @@ export const TimerView = memo(() => {
     },
   };
 
+  // reset button が押された時、Lapもリセットする
+  useEffect(() => {
+    setLapArray([]);
+  }, [resetStopwatch]);
+
   return (
     <>
       <View style={styles.container}>
@@ -97,34 +126,38 @@ export const TimerView = memo(() => {
             start={isStopwatchStart}
             reset={resetStopwatch}
             options={options}
+            getTime={getFormattedTime}
             style={isDarkMode ? styles.dark : styles.light}
           />
         </View>
         <View style={[styles.button]}>
           <TouchableHighlight
             onPress={() => {
-              setIsStopwatchStart(false);
-              setResetStopwatch(true);
+              !isStopwatchStart && setIsStopwatchStart(false);
+              !isStopwatchStart ? setResetStopwatch(true) : setLapArray([...lapArray, currentTime]);
             }}
-            style={[styles.resetButton]}
-          >
-            <Text style={[styles.buttonText]}>RESET</Text>
+            style={[
+              !isStopwatchStart ? styles.resetButton : styles.lapButton,
+              isStopwatchStart && { opacity: 0.3 },
+            ]}>
+            <Text style={[!isStopwatchStart ? styles.resetText : styles.lapText]}>
+              {!isStopwatchStart ? 'リセット' : 'ラップ'}
+            </Text>
           </TouchableHighlight>
           <TouchableHighlight
             onPress={() => {
               setIsStopwatchStart(!isStopwatchStart);
               setResetStopwatch(false);
             }}
-            style={[isStopwatchStart ? styles.stopButton : styles.startButton]}
-          >
+            style={[isStopwatchStart ? styles.stopButton : styles.startButton]}>
             <Text
-              style={[styles.buttonText, isStopwatchStart ? styles.stopText : styles.startText]}
-            >
-              {!isStopwatchStart ? 'START' : 'STOP'}
+              style={[styles.buttonText, isStopwatchStart ? styles.stopText : styles.startText]}>
+              {!isStopwatchStart ? '開始' : '停止'}
             </Text>
           </TouchableHighlight>
         </View>
       </View>
+      <TimerLap lapArray={lapArray} />
     </>
   );
 });

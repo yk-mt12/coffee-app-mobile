@@ -6,6 +6,7 @@ import { Text, View } from '../../assets/constants/Themed';
 import { updateAmount, updateRatio, updateWater } from '../../../redux/coffeeSlice';
 import { RatioInputType } from '../../types/type';
 import Colors from '../../assets/constants/Colors';
+import React from 'react';
 
 export const RatioInput = memo((props: RatioInputType) => {
   const dispatch = useDispatch();

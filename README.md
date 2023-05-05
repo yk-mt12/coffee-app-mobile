@@ -11,3 +11,6 @@
 
 ## 実行環境
 - node -v v18.13.0
+
+## 実行方法
+`npx expo start`

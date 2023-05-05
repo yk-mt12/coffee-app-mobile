@@ -4,9 +4,7 @@ import { Platform, StyleSheet } from 'react-native';
 import { View } from '../../assets/constants/Themed';
 import { RatioInput } from '../Input/RatioInput';
 import { useIsFocused } from '@react-navigation/native';
-import { UserQuestionnaire } from '../userQusetion';
-import { Twitter } from '../Twitter';
-import { Border } from '../Border';
+import React from 'react';
 
 export default function ModalScreen() {
   const isForcused = useIsFocused();
@@ -15,10 +13,6 @@ export default function ModalScreen() {
     <View style={styles.container}>
       <StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} />
       <RatioInput title={'Ratio (default: 15)'} />
-      <UserQuestionnaire />
-      <Border styleName={'userQuestion'} />
-      <Twitter />
-      <Border styleName={'twitter'} />
     </View>
   );
 }

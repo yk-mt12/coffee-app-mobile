@@ -12,7 +12,9 @@ export const RightWater = memo(() => {
       <View style={styles.rowItem}>
         <AmountBox title={'豆量'} />
       </View>
-      <ChangeUiButton />
+      <View style={styles.rowItem}>
+        <ChangeUiButton />
+      </View>
       <View style={styles.rowItem}>
         <WaterBox title={'湯量'} />
       </View>
@@ -23,6 +25,7 @@ export const RightWater = memo(() => {
 const styles = StyleSheet.create({
   rowItem: {
     textAlign: 'center',
+    justifyContent: 'center',
     width: 150,
     flex: 0.5,
     paddingLeft: 30,
