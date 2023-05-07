@@ -19,3 +19,4 @@ apps/bare-expo/deploy-url.txt
 *.expo
 *.expo-shared
 
+.env

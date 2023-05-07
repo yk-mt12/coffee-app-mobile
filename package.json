@@ -34,6 +34,7 @@
     "expo-splash-screen": "~0.18.2",
     "expo-status-bar": "~1.4.4",
     "expo-web-browser": "~12.1.1",
+    "firebase": "^9.21.0",
     "moment": "^2.29.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -46,7 +47,8 @@
     "react-native-web": "~0.18.11",
     "react-redux": "^8.0.1",
     "register-service-worker": "^1.7.2",
-    "styled-components": "^5.3.5"
+    "styled-components": "^5.3.5",
+    "swr": "^2.1.5"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
