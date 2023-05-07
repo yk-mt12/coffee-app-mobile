@@ -5,5 +5,6 @@ export type Recipe = {
   grind_size: string;
   brew_time: number;
   description: string;
-  image_url: string;
+  created_at: string;
+  updated_at: string;
 }
