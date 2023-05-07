@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View, useColorScheme } from 'react-native';
 
 interface Lap {
   lap: any;
@@ -10,9 +10,53 @@ interface TimerLapProps {
 }
 
 const TimerLap = ({ lapArray }: TimerLapProps) => {
-  const toggleLapListButton = () => {
+  const isDarkMode = useColorScheme() === 'dark';
 
-  }
+const styles = StyleSheet.create({
+  container: {
+    marginTop: 20,
+    padding: 20,
+    backgroundColor: isDarkMode ? '#333' : '#fff',
+    color: isDarkMode ? '#fff' : '#111',
+  },
+  emptyLapList: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 20,
+    color: isDarkMode ? '#fff' : '#111',
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 20,
+  },
+  headerText: {
+    color: isDarkMode ? '#fff' : '#444',
+    fontSize: 24,
+    fontWeight: 'bold',
+  },
+  lapLabel: {
+    color: isDarkMode ? '#fff' : '#444',
+    fontSize: 18,
+  },
+  lapRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 10,
+    alignItems: 'center',
+  },
+  lapTime: {
+    color: isDarkMode ? '#fff' : '#111',
+    fontSize: 22,
+    fontWeight: 'bold',
+  },
+  lapUnderline: {
+    borderBottomColor: isDarkMode ? '#fff' : '#333',
+    borderBottomWidth: 5,
+    marginTop: 5,
+  },
+});
+
 
   const renderLap = (lap: Lap, index: number) => {
     // const lapTime = moment.duration(lap.lap).format('mm:ss.SS');
@@ -46,49 +90,5 @@ const TimerLap = ({ lapArray }: TimerLapProps) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#fff',
-    borderRadius: 20,
-    marginTop: 20,
-    padding: 20,
-  },
-  emptyLapList: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: 20,
-  },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 20,
-  },
-  headerText: {
-    color: '#444',
-    fontSize: 24,
-    fontWeight: 'bold',
-  },
-  lapLabel: {
-    color: '#444',
-    fontSize: 18,
-  },
-  lapRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 10,
-    alignItems: 'center',
-  },
-  lapTime: {
-    color: '#111',
-    fontSize: 22,
-    fontWeight: 'bold',
-  },
-  lapUnderline: {
-    borderBottomColor: '#333',
-    borderBottomWidth: 1,
-    marginTop: 5,
-  }
-});
 
 export default TimerLap;

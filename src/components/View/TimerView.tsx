@@ -30,11 +30,11 @@ export const TimerView = memo(() => {
     buttonText: {},
     resetText: {
       fontSize: 14,
-      color: isDarkMode ? Colors['light'].text : Colors['dark'].text,
+      color:  Colors['dark'].text,
     },
     lapText: {
       fontSize: 14,
-      color: isDarkMode ? Colors['light'].text : Colors['dark'].text,
+      color:  Colors['dark'].text,
     },
     dark: {
       color: Colors['inputView'].wText,
