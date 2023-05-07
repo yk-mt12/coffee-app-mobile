@@ -92,30 +92,6 @@ function BottomTabNavigator() {
         })}
       />
 
-      {/* <BottomTab.Screen
-        name="CafeAuLait"
-        component={CafeAuLaitScreen}
-        options={({ navigation }: RootTabScreenProps<'CafeAuLait'>) => ({
-          title: 'Cafe Au Lait',
-          tabBarIcon: ({ color }) => <Ionicons name="ios-cafe-outline" size={30} color={color} />,
-          headerRight: () => (
-            <Pressable
-              onPress={() => navigation.navigate('Modal')}
-              style={({ pressed }) => ({
-                opacity: pressed ? 0.5 : 1,
-              })}
-            >
-              <AntDesign
-                name="setting"
-                size={25}
-                color={Colors[colorScheme].text}
-                style={{ marginRight: 15 }}
-              />
-            </Pressable>
-          ),
-        })}
-      /> */}
-
       <BottomTab.Screen
         name="IceCoffee"
         component={IceCoffee}
